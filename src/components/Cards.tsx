@@ -1,7 +1,11 @@
 import React from 'react';
+import Card from './Card';
 
 
-const Cards = () => {
+const Cards: React.FC = () => {
 
+  return (
+    <Card />
+  );
 }
 
