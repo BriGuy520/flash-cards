@@ -12,7 +12,7 @@ const Card = ({question, answer}: CardProps) => {
   return (
     <div className="card">
       <div className="card-front">
-        <p>{question}</p>
+        <h2>{question}</h2>
 
       </div>
       <div className="card-back">

@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from './Card';
 
 interface Cards {
   cards: {
@@ -8,24 +9,15 @@ interface Cards {
   }[]
 }
 
-const Collection: React.FC<Cards> = (props) => {
+const Collection: React.FC<Cards> = ({cards}) => {
 
   return (
     <>
       <h1>Collection</h1>
       <div>
 
-        {props.cards.map(card => {
-          return (
-            <div className="card">
-              <div className="card-front">
-                <h2>{card.question}</h2>
-              </div>
-              <div className="card-back">
-                <p>{card.answer}</p>
-              </div>
-            </div>
-          );
+        {cards.map(card => {
+          return <Card question={card.question} answer={card.answer}  />
         })}
         
       </div>

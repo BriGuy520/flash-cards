@@ -17,8 +17,6 @@ function App(): any {
   const [answer, setAnswer] = React.useState<string>('');
   const [cards, setCards] = React.useState<Card[]>([]);
 
-  console.log(cards);
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
     e.preventDefault();
