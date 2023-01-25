@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Card: React.FC = () => {
 
-  const [question, setQuestion] = React.useState()
+type CardProps = {
+  question: string, 
+  answer: string
+}
+
+const Card = ({question, answer}: CardProps) => {
+
 
   return (
     <div className="card">
@@ -11,7 +16,7 @@ const Card: React.FC = () => {
 
       </div>
       <div className="card-back">
-
+        <p>{answer}</p>
       </div>
     </div>
   )

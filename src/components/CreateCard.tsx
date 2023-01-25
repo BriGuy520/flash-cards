@@ -37,8 +37,7 @@ const CreateCard = () => {
         name="question" 
       />
       <label htmlFor="Answer">Answer</label>
-      <input 
-        type="text"
+      <textarea 
         value={answer} 
         onChange={(e) => setAnswer(e.target.value)}
         name="Answer" 
