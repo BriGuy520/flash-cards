@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 type Card = {
   id: number,
   question: string,

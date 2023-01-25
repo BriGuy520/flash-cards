@@ -10,7 +10,6 @@ function App(): any {
       <h1>Flip Cards</h1>
       <Collections />
       <Collection />
-      <CreateCard />
     </div>
   );
 }
