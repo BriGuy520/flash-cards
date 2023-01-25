@@ -1,31 +1,15 @@
 import React from 'react';
 
-type Card = {
-  id: number,
+type CreateCardProps = {
+  handleSubmit: React.FormEventHandler<HTMLFormElement>,
+  handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
+  handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
   question: string,
   answer: string
 }
 
-const CreateCard = () => {
+const CreateCard = ({handleSubmit, handleQuestion, handleAnswer, question, answer}: CreateCardProps) => {
 
-  const [question, setQuestion] = React.useState<string>('');
-  const [answer, setAnswer] = React.useState<string>('');
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-
-    e.preventDefault();
-
-    const newCard: Card = {
-      id: Date.now(),
-      question,
-      answer
-    }
-
-    console.log(newCard);
-
-    return newCard;
-
-  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -33,13 +17,13 @@ const CreateCard = () => {
       <input 
         type="text" 
         value={question} 
-        onChange={(e) => setQuestion(e.target.value)} 
+        onChange={handleQuestion} 
         name="question" 
       />
       <label htmlFor="Answer">Answer</label>
       <textarea 
         value={answer} 
-        onChange={(e) => setAnswer(e.target.value)}
+        onChange={handleAnswer}
         name="Answer" 
       />
       <input type="submit" value="Add Card" />

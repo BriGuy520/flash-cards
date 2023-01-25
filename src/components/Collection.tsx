@@ -1,16 +1,33 @@
 import React from 'react';
-import CreateCard from './CreateCard';
 
+interface Cards {
+  cards: {
+    id: number,
+    question: string,
+    answer: string,
+  }[]
+}
 
-const Collection: React.FC = () => {
-
-  const [cards, setCards] = React.useState<string[]|null>([]);
+const Collection: React.FC<Cards> = (props) => {
 
   return (
     <>
       <h1>Collection</h1>
       <div>
-        <CreateCard />
+
+        {props.cards.map(card => {
+          return (
+            <div className="card">
+              <div className="card-front">
+                <h2>{card.question}</h2>
+              </div>
+              <div className="card-back">
+                <p>{card.answer}</p>
+              </div>
+            </div>
+          );
+        })}
+        
       </div>
     </>
   )

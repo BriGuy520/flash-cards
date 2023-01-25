@@ -15,6 +15,9 @@ function App(): any {
 
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
+  const [cards, setCards] = React.useState<Card[]>([]);
+
+  console.log(cards);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
@@ -26,9 +29,21 @@ function App(): any {
       answer
     }
 
-    console.log(newCard);
+    setCards(prevCards => [...prevCards, newCard]);
 
-    return newCard;
+  }
+
+  const handleAnswer = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.preventDefault();
+
+
+    setAnswer(e.target.value);
+  }
+
+  const handleQuestion = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    setQuestion(e.target.value);
 
   }
 
@@ -36,7 +51,8 @@ function App(): any {
     <div className="App">
       <h1>Flash Cards</h1>
       <Collections />
-      <Collection />
+      <Collection cards={cards} />
+      <CreateCard handleSubmit={handleSubmit} handleQuestion={handleQuestion} handleAnswer={handleAnswer} answer={answer} question={question} />
     </div>
   );
 }
