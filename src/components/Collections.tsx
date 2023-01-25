@@ -1,21 +1,21 @@
 import React from 'react';
 
-const Collections: React.FC = () => {
+interface CollectionsProps {
+  createCollection: React.ChangeEventHandler<HTMLInputElement>,
+  collectionName: string,
+}
 
-  const [collectionName, setCollectionName] = React.useState<string>('');
-  const [readyToAdd, setReadyToAdd] = React.useState<boolean>(false);
+const Collections = ({createCollection, collectionName}: CollectionsProps) => {
 
+  const [collections, setCollections] = React.useState<object[]>([])
 
-  const createCollection = () => {
-
-  }
 
   return (
     <div>
       <p>Collections</p>
       <ul>
-        <li onClick={createCollection}>Start New Collection...</li>
       </ul>
+      <input onChange={createCollection} value={collectionName}/>
     </div>
   )
 
