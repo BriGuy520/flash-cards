@@ -3,11 +3,12 @@ import React from 'react';
 interface CollectionsProps {
   createCollection: React.ChangeEventHandler<HTMLInputElement>,
   handleAddCollection: React.KeyboardEventHandler<HTMLInputElement>,
+  handleClick: (value: string) => void,
   collectionName: string,
   collections: object,
 }
 
-const Collections = ({createCollection, handleAddCollection, collectionName, collections}: CollectionsProps) => {
+const Collections = ({createCollection, handleAddCollection, handleClick, collectionName, collections}: CollectionsProps) => {
   
   const collectionList: string[] = Object.keys(collections);
 
@@ -16,7 +17,7 @@ const Collections = ({createCollection, handleAddCollection, collectionName, col
       <p><strong>Collections</strong></p>
       <ul>
         {collectionList.map(collection => {
-          return <li>{collection}</li>
+          return <li key={collection} onClick={() => handleClick(collection)}>{collection}</li>
         })}
       </ul>
       <input onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/>

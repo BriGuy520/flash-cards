@@ -13,10 +13,15 @@ import CreateCard from './CreateCard';
 type Card = {
   id: number,
   question: string,
-  answer: string
+  answer: string, 
+  collection: string,
 }
 
-const Collection: React.FC = () => {
+interface CollectionProps {
+  selectedCollection: string,
+}
+
+const Collection = ({selectedCollection}: CollectionProps) => {
 
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
@@ -28,7 +33,8 @@ const Collection: React.FC = () => {
     const newCard: Card = {
       id: Date.now(),
       question,
-      answer
+      answer, 
+      collection: selectedCollection,
     }
 
     setCards(prevCards => [...prevCards, newCard]);
@@ -48,10 +54,12 @@ const Collection: React.FC = () => {
 
   return (
     <>
-      <h1>Collection</h1>
+      <h1>{selectedCollection} Collection</h1>
       <div>
         {cards.map(card => {
-          return <Card question={card.question} answer={card.answer}  />
+          if(card.collection == selectedCollection){
+            return <Card question={card.question} answer={card.answer}  />
+          }
         })}
         <CreateCard handleSubmit={handleSubmit} handleQuestion={handleQuestion} handleAnswer={handleAnswer} answer={answer} question={question} />
       </div>

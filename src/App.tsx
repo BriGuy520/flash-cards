@@ -3,11 +3,16 @@ import './App.css';
 import Collection from './components/Collection';
 import Collections from './components/Collections';
 
+
+const initialValue: string = "Start New Collection...";
+
 function App(): any {
 
+
   const [collections, setCollections] = React.useState<object>({});
-  const [collectionName, setCollectionName] = React.useState<string>('Start New Collection...');
-  const [currentCollection, setCurrentCollection] = React.useState<object[]>([]);
+  const [collectionName, setCollectionName] = React.useState<string>(initialValue);
+  const [currentCollection, setCurrentCollection] = React.useState<string>('');
+
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -18,9 +23,15 @@ function App(): any {
     if (event.key === 'Enter') {
       // Update state when enter key is pressed
 
-
       setCollections({...collections, [collectionName]: []});
+      setCollectionName(initialValue);
     }
+  }
+
+  const handleClick = (value: string) => {
+
+
+    setCurrentCollection(value);
   }
   
 
@@ -33,10 +44,11 @@ function App(): any {
           collectionName={collectionName} 
           handleAddCollection={handleKeyDown} 
           collections={collections}
+          handleClick={handleClick}
         />
       </div>
       <div className="collection-view"> 
-        <Collection />
+        <Collection selectedCollection={currentCollection} />
       </div>
     </div>
   );
