@@ -6,12 +6,60 @@ import Collections from './components/Collections';
 
 const initialValue: string = "Start New Collection...";
 
+
+type Card = {
+  id: number,
+  question: string,
+  answer: string, 
+}
+
+interface Collections {
+  [currentCollection: string]: Array<Card>,
+  
+}
+
 function App(): any {
 
 
-  const [collections, setCollections] = React.useState<object>({});
+  const [collections, setCollections] = React.useState<Collections>({});
   const [collectionName, setCollectionName] = React.useState<string>(initialValue);
   const [currentCollection, setCurrentCollection] = React.useState<string>('');
+
+  const [question, setQuestion] = React.useState<string>('');
+  const [answer, setAnswer] = React.useState<string>('');
+
+  console.log(collections);
+
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const newCard: Card = {
+      id: Date.now(),
+      question,
+      answer,
+    }
+
+    const updateArray = [...collections[currentCollection]];
+
+    updateArray.push(newCard);
+
+    setCollections({...collections, [currentCollection]: updateArray})
+
+    
+  }
+
+  const handleAnswer = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    e.preventDefault();
+
+    setAnswer(e.target.value);
+  }
+
+  const handleQuestion = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    setQuestion(e.target.value);
+  }
 
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -48,7 +96,15 @@ function App(): any {
         />
       </div>
       <div className="collection-view"> 
-        <Collection selectedCollection={currentCollection} />
+        <Collection 
+          selectedCollection={currentCollection} 
+          handleSubmit={handleSubmit} 
+          handleQuestion={handleQuestion}
+          handleAnswer={handleAnswer}
+          question={question}
+          answer={answer}
+          cards={collections[currentCollection]}
+        />
       </div>
     </div>
   );
