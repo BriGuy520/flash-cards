@@ -41,21 +41,26 @@ const Collection = ({
   return (
     <div className="border py-3">
       <h1>{selectedCollection} Collection</h1>
-      <div className="row">
+      <div className="row justify-content-center">
     
         {cards?.map(card => {
             return <Card question={card.question} answer={card.answer} />
           })}
+
+        <div className="col-lg-3 card m-3 col-lg-6">
+        
+          <CreateCard 
+            handleSubmit={handleSubmit} 
+            handleQuestion={handleQuestion} 
+            handleAnswer={handleAnswer} 
+            answer={answer} 
+            question={question} 
+          />
+        </div>
+
   
       </div>
-      <div className="col-lg-3">
-        <CreateCard 
-          handleSubmit={handleSubmit} 
-          handleQuestion={handleQuestion} 
-          handleAnswer={handleAnswer} 
-          answer={answer} 
-          question={question} />
-      </div>
+      
     </div>
   )
   

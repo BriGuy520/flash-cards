@@ -23,8 +23,7 @@ const CreateCard = ({handleSubmit, handleQuestion, handleAnswer, question, answe
           name="question" 
         />
         <label htmlFor="Answer">Answer</label>
-        <textarea 
-          className="w-100"
+        <textarea
           value={answer} 
           onChange={handleAnswer}
           name="Answer" 
