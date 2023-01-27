@@ -13,7 +13,7 @@ const Collections = ({createCollection, handleAddCollection, handleClick, collec
   const collectionList: string[] = Object.keys(collections);
 
   return (
-    <div>
+    <div className="p-2 lg-row-2">
       <p><strong>Collections</strong></p>
       <ul>
         {collectionList.map(collection => {

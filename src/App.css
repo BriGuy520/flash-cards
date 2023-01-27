@@ -1,3 +1,9 @@
 .card {
   border: 1px solid black;
+  box-shadow: 2px 2px 2px 2px #ccc;
 }
+
+body {
+  font-family: 'Permanent Marker';
+}
+

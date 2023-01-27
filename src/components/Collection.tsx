@@ -37,20 +37,18 @@ const Collection = ({
  }: CollectionProps) => {
 
 
-  console.log(cards);
-
 
   return (
-    <>
+    <div className="border py-3">
       <h1>{selectedCollection} Collection</h1>
-      <div>
-
-        {cards.map(card => {
-          return <Card question={card.question} answer={card.answer} />
-        })}
+      <div className="row">
+    
+        {cards?.map(card => {
+            return <Card question={card.question} answer={card.answer} />
+          })}
   
       </div>
-      <div>
+      <div className="col-lg-3">
         <CreateCard 
           handleSubmit={handleSubmit} 
           handleQuestion={handleQuestion} 
@@ -58,7 +56,7 @@ const Collection = ({
           answer={answer} 
           question={question} />
       </div>
-    </>
+    </div>
   )
   
 }

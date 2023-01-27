@@ -28,9 +28,6 @@ function App(): any {
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
 
-  console.log(collections);
-
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -84,27 +81,29 @@ function App(): any {
   
 
   return (
-    <div className="App">
+    <div className="App container">
       <h1>Flash Cards</h1>
-      <div className="collections-row">
-        <Collections 
-          createCollection={createCollection} 
-          collectionName={collectionName} 
-          handleAddCollection={handleKeyDown} 
-          collections={collections}
-          handleClick={handleClick}
-        />
-      </div>
-      <div className="collection-view"> 
-        <Collection 
-          selectedCollection={currentCollection} 
-          handleSubmit={handleSubmit} 
-          handleQuestion={handleQuestion}
-          handleAnswer={handleAnswer}
-          question={question}
-          answer={answer}
-          cards={collections[currentCollection]}
-        />
+      <div className="row">
+        <div className="collections-row border height-100 col-lg-3 p-2">
+          <Collections 
+            createCollection={createCollection} 
+            collectionName={collectionName} 
+            handleAddCollection={handleKeyDown} 
+            collections={collections}
+            handleClick={handleClick}
+          />
+        </div>
+        <div className="collection-view row col-lg-9"> 
+          <Collection 
+            selectedCollection={currentCollection} 
+            handleSubmit={handleSubmit} 
+            handleQuestion={handleQuestion}
+            handleAnswer={handleAnswer}
+            question={question}
+            answer={answer}
+            cards={collections[currentCollection]}
+          />
+        </div>
       </div>
     </div>
   );
