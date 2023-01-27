@@ -81,10 +81,10 @@ function App(): any {
   
 
   return (
-    <div className="App container">
+    <div className="App container-fluid">
       <h1>Flash Cards</h1>
       <div className="row">
-        <div className="collections-row border height-100 col-lg-3 p-2">
+        <div className="collections-row border height-100 col-lg-2 p-2">
           <Collections 
             createCollection={createCollection} 
             collectionName={collectionName} 
@@ -93,7 +93,7 @@ function App(): any {
             handleClick={handleClick}
           />
         </div>
-        <div className="collection-view row col-lg-9"> 
+        <div className="collection-view row col-lg-10"> 
           <Collection 
             selectedCollection={currentCollection} 
             handleSubmit={handleSubmit} 
