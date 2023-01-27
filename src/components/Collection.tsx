@@ -39,9 +39,9 @@ const Collection = ({
 
 
   return (
-    <div className="border py-3">
+    <div className="border collection-content py-3">
       <h1>{selectedCollection} Collection</h1>
-      <div className="row">
+      <div className="row ">
     
         {cards?.map(card => {
             return <Card question={card.question} answer={card.answer} />

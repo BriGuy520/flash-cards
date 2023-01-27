@@ -1,5 +1,19 @@
+.collection-content {
+  padding: 40px 2%;
+}
+
+.collections-list li {
+  padding: 2px 0;
+}
+
+.add-collection {
+  width: 100%;
+}
+
 .card {
   box-shadow: 0px 5px 3px 0px #e0dbdb;
+  width: 350px;
+  height: auto;
 }
 
 body {
@@ -10,7 +24,7 @@ body {
 .flip-card {
   background-color: transparent;
   width: 300px;
-  height: 200px;
+  height: 550px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }

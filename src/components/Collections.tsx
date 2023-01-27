@@ -15,12 +15,13 @@ const Collections = ({createCollection, handleAddCollection, handleClick, collec
   return (
     <div className="p-2 lg-row-2">
       <p><strong>Collections</strong></p>
-      <ul>
+      <ul className="collections-list">
         {collectionList.map(collection => {
           return <li key={collection} onClick={() => handleClick(collection)}>{collection}</li>
         })}
+        <li><input className="add-collection" onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/></li>
       </ul>
-      <input onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/>
+      
     </div>
   )
 
