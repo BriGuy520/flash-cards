@@ -21,7 +21,7 @@ interface CollectionProps {
   handleSubmit: React.FormEventHandler<HTMLFormElement>, 
   handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
-  handleDeleteClick: React.MouseEventHandler<HTMLButtonElement>,
+  handleDeleteClick: Function,
   answer: string, 
   question: string,
   cards: Array<CardDetails>

@@ -5,7 +5,6 @@ import Collections from './components/Collections';
 
 const initialValue: string = "Start New Collection...";
 
-
 type Card = {
   id: number,
   question: string,
@@ -57,11 +56,11 @@ function App(): any {
     setQuestion(e.target.value);
   }
 
-  const handleDeleteCard = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleDeleteCard = (id: number) => {
   
-    const updateArray = [...collections[currentCollection]];
+    const removeCard = collections[currentCollection].filter((collection: Card) => collection.id != id);
 
-    console.log("Delete card.");
+    setCollections({...collections, [currentCollection]: removeCard})
   }
 
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {
