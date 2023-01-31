@@ -5,29 +5,46 @@ type CreateCardProps = {
   handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
   question: string,
-  answer: string
+  answer: string,
+  children: string,
 }
 
-const CreateCard = ({handleSubmit, handleQuestion, handleAnswer, question, answer}: CreateCardProps) => {
+const CreateCard = ({handleSubmit, handleQuestion, handleAnswer, question, answer, children}: CreateCardProps) => {
 
+  const [addCard, setAddCard] = React.useState<boolean>(true);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="Question">Question</label>
-      <input 
-        type="text" 
-        value={question} 
-        onChange={handleQuestion} 
-        name="question" 
-      />
-      <label htmlFor="Answer">Answer</label>
-      <textarea 
-        value={answer} 
-        onChange={handleAnswer}
-        name="Answer" 
-      />
-      <input type="submit" value="Add Card" />
-    </form>
+    <div className="d-flex flex-column m-3">    
+     <div style={{display: addCard ? 'block' : 'none'}} className="form-side">
+
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-group my-2">
+            <label htmlFor="Question">Question</label>
+            <input 
+              className="p-1 form-control"
+              type="text" 
+              value={question} 
+              onChange={handleQuestion} 
+              name="question" 
+            />
+          </div>
+          <div className="form-group py-2">
+            <label htmlFor="Answer">Answer</label>
+            <textarea
+              className="form-control"
+              value={answer} 
+              onChange={handleAnswer}
+              name="Answer" 
+            />
+            <input className="btn btn-primary" type="submit" value="Add Card" />
+          </div>
+        </form>
+     </div>
+     <div style={{display: addCard ? 'none' : 'block'}} className="front-side">
+      <p>{children} Add New Card</p>
+     </div>
+    </div>
   )
 
 }

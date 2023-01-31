@@ -14,59 +14,55 @@ type Card = {
   id: number,
   question: string,
   answer: string, 
-  collection: string,
 }
 
 interface CollectionProps {
   selectedCollection: string,
-  allCollections: {[key: string]: any},
+  handleSubmit: React.FormEventHandler<HTMLFormElement>, 
+  handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
+  handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
+  answer: string, 
+  question: string,
+  cards: Array<Card>
 }
 
-const Collection = ({selectedCollection, allCollections}: CollectionProps) => {
+const Collection = ({
+  selectedCollection, 
+  handleSubmit,
+  handleAnswer, 
+  handleQuestion, 
+  answer, 
+  question,
+  cards,
+ }: CollectionProps) => {
 
-  const [question, setQuestion] = React.useState<string>('');
-  const [answer, setAnswer] = React.useState<string>('');
-  const [cards, setCards] = React.useState<Card[]>([]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const newCard: Card = {
-      id: Date.now(),
-      question,
-      answer, 
-      collection: selectedCollection,
-    }
-
-    console.log(allCollections[selectedCollection]);
-
-    setCards(prevCards => [...prevCards, newCard]);
-  }
-
-  const handleAnswer = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    e.preventDefault();
-
-    setAnswer(e.target.value);
-  }
-
-  const handleQuestion = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-
-    setQuestion(e.target.value);
-  }
 
   return (
-    <>
+    <div className="border collection-content py-3">
       <h1>{selectedCollection} Collection</h1>
-      <div>
-        {cards.map(card => {
-          if(card.collection == selectedCollection){
-            return <Card question={card.question} answer={card.answer}  />
-          }
-        })}
-        <CreateCard handleSubmit={handleSubmit} handleQuestion={handleQuestion} handleAnswer={handleAnswer} answer={answer} question={question} />
+      <div className="row ">
+    
+        {cards?.map(card => {
+            return <Card question={card.question} answer={card.answer} />
+          })}
+
+        <div className="col-lg-3 card m-3">
+        
+          <CreateCard 
+            handleSubmit={handleSubmit} 
+            handleQuestion={handleQuestion} 
+            handleAnswer={handleAnswer} 
+            answer={answer} 
+            question={question} 
+          >+
+          </CreateCard>
+        </div>
+
+  
       </div>
-    </>
+      
+    </div>
   )
   
 }
