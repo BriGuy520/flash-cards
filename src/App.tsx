@@ -3,7 +3,6 @@ import './App.css';
 import Collection from './components/Collection';
 import Collections from './components/Collections';
 
-
 const initialValue: string = "Start New Collection...";
 
 function App(): any {
@@ -48,7 +47,7 @@ function App(): any {
         />
       </div>
       <div className="collection-view"> 
-        <Collection selectedCollection={currentCollection} />
+        <Collection selectedCollection={currentCollection} allCollections={collections}  />
       </div>
     </div>
   );

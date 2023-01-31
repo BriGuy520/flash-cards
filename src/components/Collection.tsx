@@ -19,9 +19,10 @@ type Card = {
 
 interface CollectionProps {
   selectedCollection: string,
+  allCollections: {[key: string]: any},
 }
 
-const Collection = ({selectedCollection}: CollectionProps) => {
+const Collection = ({selectedCollection, allCollections}: CollectionProps) => {
 
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
@@ -36,6 +37,8 @@ const Collection = ({selectedCollection}: CollectionProps) => {
       answer, 
       collection: selectedCollection,
     }
+
+    console.log(allCollections[selectedCollection]);
 
     setCards(prevCards => [...prevCards, newCard]);
   }
