@@ -36,6 +36,7 @@ const CreateCard = ({handleSubmit, handleQuestion, handleAnswer, question, answe
               value={answer} 
               onChange={handleAnswer}
               name="Answer" 
+              rows={6}
             />
             <input className="btn btn-primary" type="submit" value="Add Card" />
           </div>

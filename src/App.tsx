@@ -18,7 +18,6 @@ interface Collections {
 
 function App(): any {
 
-
   const [collections, setCollections] = React.useState<Collections>({});
   const [collectionName, setCollectionName] = React.useState<string>(initialValue);
   const [currentCollection, setCurrentCollection] = React.useState<string>('');
@@ -39,9 +38,7 @@ function App(): any {
 
     updateArray.push(newCard);
 
-    setCollections({...collections, [currentCollection]: updateArray})
-
-    
+    setCollections({...collections, [currentCollection]: updateArray}); 
   }
 
   const handleAnswer = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -60,7 +57,7 @@ function App(): any {
   
     const removeCard = collections[currentCollection].filter((collection: Card) => collection.id != id);
 
-    setCollections({...collections, [currentCollection]: removeCard})
+    setCollections({ ...collections, [currentCollection]: removeCard });
   }
 
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {

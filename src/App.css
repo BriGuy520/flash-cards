@@ -16,6 +16,16 @@
   height: auto;
 }
 
+.flip-card-inner button {
+  position: absolute;
+  right: 0;
+}
+
+
+textarea.form-control {
+  margin-bottom: 16px;
+}
+
 body {
   font-family: 'Permanent Marker';
 }
@@ -64,4 +74,8 @@ body {
   background-color: #fff;
   color: #000;
   transform: rotateY(180deg);
+}
+
+.card-body {
+  padding: 40px 20px;
 }
