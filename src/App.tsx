@@ -57,6 +57,13 @@ function App(): any {
     setQuestion(e.target.value);
   }
 
+  const handleDeleteCard = (e: React.MouseEvent<HTMLButtonElement>) => {
+  
+    const updateArray = [...collections[currentCollection]];
+
+    console.log("Delete card.");
+  }
+
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -98,6 +105,7 @@ function App(): any {
             handleSubmit={handleSubmit} 
             handleQuestion={handleQuestion}
             handleAnswer={handleAnswer}
+            handleDeleteClick={handleDeleteCard}
             question={question}
             answer={answer}
             cards={collections[currentCollection]}

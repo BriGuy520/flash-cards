@@ -10,7 +10,7 @@ import CreateCard from './CreateCard';
 //   }[]
 // }
 
-type Card = {
+export type CardDetails = {
   id: number,
   question: string,
   answer: string, 
@@ -21,9 +21,10 @@ interface CollectionProps {
   handleSubmit: React.FormEventHandler<HTMLFormElement>, 
   handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
+  handleDeleteClick: React.MouseEventHandler<HTMLButtonElement>,
   answer: string, 
   question: string,
-  cards: Array<Card>
+  cards: Array<CardDetails>
 }
 
 const Collection = ({
@@ -31,6 +32,7 @@ const Collection = ({
   handleSubmit,
   handleAnswer, 
   handleQuestion, 
+  handleDeleteClick,
   answer, 
   question,
   cards,
@@ -44,7 +46,7 @@ const Collection = ({
       <div className="row ">
     
         {cards?.map(card => {
-            return <Card question={card.question} answer={card.answer} />
+            return <Card card={card} handleDeleteCard={handleDeleteClick} />
           })}
 
         <div className="col-lg-3 card m-3">

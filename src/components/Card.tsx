@@ -1,12 +1,13 @@
 import React from 'react';
+import { CardDetails } from "./Collection";
 
 
 type CardProps = {
-  question: string, 
-  answer: string
+  card: CardDetails,
+  handleDeleteCard: React.MouseEventHandler<HTMLButtonElement>,
 }
 
-const Card = ({question, answer}: CardProps) => {
+const Card = ({card, handleDeleteCard}: CardProps) => {
 
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
@@ -22,12 +23,13 @@ const Card = ({question, answer}: CardProps) => {
   return (
     <div className="card m-3 col-lg-3" onClick={handleCardClick}>
       <div className="flip-card-inner">
+        <button onClick={handleDeleteCard}>X</button>
         <div style={{display: showQuestion ? 'block' : 'none'}} className="card-front card-body">
-          <h2>{question}</h2>
+          <h2>{card.question}</h2>
 
         </div>
         <div style={{display: showQuestion ? 'none' : 'block'}} className="card-back card-body">
-          <p>{answer}</p>
+          <p>{card.answer}</p>
         </div>
       </div>
     </div>
