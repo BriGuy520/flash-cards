@@ -18,9 +18,15 @@
 
 .flip-card-inner button {
   position: absolute;
+}
+
+.delete-icon {
   right: 0;
 }
 
+.edit-icon {
+  right: 30px
+}
 
 textarea.form-control {
   margin-bottom: 16px;
