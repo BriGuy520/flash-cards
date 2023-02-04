@@ -61,8 +61,12 @@ function App(): any {
     setCollections({ ...collections, [currentCollection]: removeCard });
   }
 
-  const handleEditCard = () => {
+  const handleQuestionChange = () => {
+    console.log("Question Change");
+  }
 
+  const handleAnswerChange = () => {
+    console.log("Answer Change");
   }
 
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,7 +85,6 @@ function App(): any {
   }
 
   const handleClick = (value: string) => {
-
 
     setCurrentCollection(value);
   }
@@ -106,6 +109,8 @@ function App(): any {
             handleSubmit={handleSubmit} 
             handleQuestion={handleQuestion}
             handleAnswer={handleAnswer}
+            handleQuestionChange={handleQuestionChange}
+            handleAnswerChange={handleAnswerChange}
             handleDeleteClick={handleDeleteCard}
             question={question}
             answer={answer}

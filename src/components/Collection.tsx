@@ -21,6 +21,8 @@ interface CollectionProps {
   handleSubmit: React.FormEventHandler<HTMLFormElement>, 
   handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
+  handleAnswerChange:  React.ChangeEventHandler<HTMLTextAreaElement>,
+  handleQuestionChange: React.ChangeEventHandler<HTMLInputElement>,
   handleDeleteClick: Function,
   answer: string, 
   question: string,
@@ -32,6 +34,8 @@ const Collection = ({
   handleSubmit,
   handleAnswer, 
   handleQuestion, 
+  handleQuestionChange, 
+  handleAnswerChange,
   handleDeleteClick,
   answer, 
   question,
@@ -46,7 +50,14 @@ const Collection = ({
       <div className="row ">
     
         {cards?.map(card => {
-            return <Card key={card.id} card={card} handleDeleteCard={handleDeleteClick} />
+            return (
+              <Card 
+                key={card.id} 
+                card={card} 
+                handleDeleteCard={handleDeleteClick} 
+                handleQuestionChange={handleQuestionChange}  
+                handleAnswerChange={handleAnswerChange} />
+            );
           })}
 
         <div className="col-lg-3 card m-3">   
