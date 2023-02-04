@@ -46,11 +46,10 @@ const Collection = ({
       <div className="row ">
     
         {cards?.map(card => {
-            return <Card card={card} handleDeleteCard={handleDeleteClick} />
+            return <Card key={card.id} card={card} handleDeleteCard={handleDeleteClick} />
           })}
 
-        <div className="col-lg-3 card m-3">
-        
+        <div className="col-lg-3 card m-3">   
           <CreateCard 
             handleSubmit={handleSubmit} 
             handleQuestion={handleQuestion} 
@@ -60,10 +59,7 @@ const Collection = ({
           >+
           </CreateCard>
         </div>
-
-  
-      </div>
-      
+      </div>  
     </div>
   )
   

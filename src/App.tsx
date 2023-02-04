@@ -12,8 +12,7 @@ type Card = {
 }
 
 interface Collections {
-  [currentCollection: string]: Array<Card>,
-  
+  [currentCollection: string]: Array<Card>,  
 }
 
 function App(): any {
@@ -24,6 +23,8 @@ function App(): any {
 
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
+
+  console.log(collections);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,9 +56,13 @@ function App(): any {
 
   const handleDeleteCard = (id: number) => {
   
-    const removeCard = collections[currentCollection].filter((collection: Card) => collection.id != id);
+    const removeCard = collections[currentCollection].filter((collection: Card) => collection.id !== id);
 
     setCollections({ ...collections, [currentCollection]: removeCard });
+  }
+
+  const handleEditCard = () => {
+
   }
 
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {

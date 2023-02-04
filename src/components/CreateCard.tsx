@@ -1,23 +1,28 @@
 import React from 'react';
 
 type CreateCardProps = {
-  handleSubmit: React.FormEventHandler<HTMLFormElement>,
-  handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
-  handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
+  handleSubmit?: React.FormEventHandler<HTMLFormElement>,
+  handleAnswer?: React.ChangeEventHandler<HTMLTextAreaElement>,
+  handleQuestion?: React.ChangeEventHandler<HTMLInputElement>,
   question: string,
   answer: string,
-  children: string,
+  children?: string | undefined,
 }
 
-const CreateCard = ({handleSubmit, handleQuestion, handleAnswer, question, answer, children}: CreateCardProps) => {
+const CreateCard = ({
+  handleSubmit, 
+  handleQuestion, 
+  handleAnswer, 
+  question, 
+  answer, 
+  children,
+}: CreateCardProps) => {
 
   const [addCard, setAddCard] = React.useState<boolean>(true);
 
   return (
     <div className="d-flex flex-column m-3">    
      <div style={{display: addCard ? 'block' : 'none'}} className="form-side">
-
-
         <form onSubmit={handleSubmit}>
           <div className="form-group my-2">
             <label htmlFor="Question">Question</label>
