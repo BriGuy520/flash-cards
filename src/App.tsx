@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Collection from './components/Collection';
 import Collections from './components/Collections';
+import { data } from './db/data';
 
 const initialValue: string = "Start New Collection...";
 
@@ -18,7 +19,7 @@ interface Collections {
 
 function App(): any {
 
-  const [collections, setCollections] = React.useState<Collections>({});
+  const [collections, setCollections] = React.useState<Collections>(data);
   const [collectionName, setCollectionName] = React.useState<string>(initialValue);
   const [currentCollection, setCurrentCollection] = React.useState<string>('');
 
@@ -28,6 +29,9 @@ function App(): any {
   const [editCard, setEditCard] = React.useState<Array<number>>([]);
   const [editQuestion, setEditQuestion] = React.useState<string>('');
   const [editAnswer, setEditAnswer] = React.useState<string>('');
+
+
+  console.log(collections);
 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
