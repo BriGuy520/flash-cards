@@ -21,11 +21,11 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
 
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
-
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
-    setShowQuestion(!showQuestion);
+    
+    setShowQuestion(!showQuestion);  
   }
 
   if(editCard[0] === card.id){
