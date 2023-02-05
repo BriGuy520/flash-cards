@@ -25,7 +25,9 @@ function App(): any {
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
 
-  const [editCard, setEditCard] = React.useState<number|null>(null);
+  const [editCard, setEditCard] = React.useState<Array<number>>([]);
+  const [editQuestion, setEditQuestion] = React.useState<string>('');
+  const [editAnswer, setEditAnswer] = React.useState<string>('');
 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,16 +70,40 @@ function App(): any {
 
     const valueToChange = collections[currentCollection].findIndex(card => card.id == id);
 
-    setEditCard(id);
-    console.log(valueToChange);
+    setEditCard([id, valueToChange]);
+    setEditQuestion(collections[currentCollection][valueToChange].question);
+    setEditAnswer(collections[currentCollection][valueToChange].answer);
+
+  }
+
+  const handleEditSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const updateCard = collections[currentCollection].map((card, idx) => {
+      
+        if(editCard[1] === idx){
+          card.question = editQuestion;
+          card.answer = editAnswer;
+        }
+
+        return card;
+    });
+    
+
+    setCollections({...collections, [currentCollection]: updateCard });
+    setEditCard([])
   }
 
   const handleQuestionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    
+    e.preventDefault();
+
+    setEditQuestion(e.target.value);
   }
 
   const handleAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    console.log("Answer Change");
+    e.preventDefault();
+
+    setEditAnswer(e.target.value);
   }
 
   const createCollection = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -122,8 +148,11 @@ function App(): any {
             handleAnswer={handleAnswer}
             handleQuestionChange={handleQuestionChange}
             handleAnswerChange={handleAnswerChange}
+            handleEditSubmit={handleEditSubmit}
             handleDeleteClick={handleDeleteCard}
             handleEditClick={handleEditClick}
+            editQuestion={editQuestion}
+            editAnswer={editAnswer}
             editCard={editCard}
             question={question}
             answer={answer}

@@ -19,13 +19,16 @@ export type CardDetails = {
 interface CollectionProps {
   selectedCollection: string,
   handleSubmit: React.FormEventHandler<HTMLFormElement>, 
+  handleEditSubmit: React.FormEventHandler<HTMLFormElement>,
   handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion: React.ChangeEventHandler<HTMLInputElement>,
   handleAnswerChange:  React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestionChange: React.ChangeEventHandler<HTMLInputElement>,
+  editQuestion: string,
+  editAnswer: string,
   handleDeleteClick: Function,
   handleEditClick: Function,
-  editCard: number|null,
+  editCard: Array<number>,
   answer: string, 
   question: string,
   cards: Array<CardDetails>
@@ -38,9 +41,12 @@ const Collection = ({
   handleQuestion, 
   handleQuestionChange, 
   handleAnswerChange,
+  handleEditSubmit,
   handleDeleteClick,
   handleEditClick,
   editCard,
+  editQuestion,
+  editAnswer,
   answer, 
   question,
   cards,
@@ -61,6 +67,9 @@ const Collection = ({
                 editCard={editCard}
                 handleDeleteCard={handleDeleteClick} 
                 handleEditCardClick={handleEditClick}
+                editQuestion={editQuestion}
+                editAnswer={editAnswer}
+                handleEditSubmit={handleEditSubmit}
                 handleQuestionChange={handleQuestionChange}  
                 handleAnswerChange={handleAnswerChange} />
             );

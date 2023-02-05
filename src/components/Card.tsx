@@ -7,14 +7,17 @@ import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 type CardProps = {
   card: CardDetails,
-  editCard: number|null,
+  editCard: Array<number>,
+  editQuestion: string,
+  editAnswer: string,
   handleDeleteCard: Function,
   handleEditCardClick: Function,
   handleQuestionChange: React.ChangeEventHandler<HTMLInputElement>,
   handleAnswerChange: React.ChangeEventHandler<HTMLTextAreaElement>,
+  handleEditSubmit: React.FormEventHandler<HTMLFormElement>,
 }
 
-const Card = ({card, editCard, handleDeleteCard, handleQuestionChange, handleAnswerChange, handleEditCardClick}: CardProps) => {
+const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handleDeleteCard, handleQuestionChange, handleAnswerChange, handleEditCardClick}: CardProps) => {
 
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
@@ -25,15 +28,15 @@ const Card = ({card, editCard, handleDeleteCard, handleQuestionChange, handleAns
     setShowQuestion(!showQuestion);
   }
 
-  if(editCard === card.id){
+  if(editCard[0] === card.id){
     return (
       <div className="col-lg-3 card m-3"> 
         <CreateCard 
-          question={card.question} 
-          answer={card.answer} 
+          question={editQuestion} 
+          answer={editAnswer} 
           handleAnswer={handleAnswerChange} 
           handleQuestion={handleQuestionChange} 
-
+          handleSubmit={handleEditSubmit}
         />
       </div>      
     ); 
