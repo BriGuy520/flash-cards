@@ -15,6 +15,7 @@ interface Collections {
   [currentCollection: string]: Array<Card>,  
 }
 
+
 function App(): any {
 
   const [collections, setCollections] = React.useState<Collections>({});
@@ -23,8 +24,6 @@ function App(): any {
 
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
-
-  console.log(collections);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -61,11 +60,19 @@ function App(): any {
     setCollections({ ...collections, [currentCollection]: removeCard });
   }
 
-  const handleQuestionChange = () => {
-    console.log("Question Change");
+
+  const handleEditClick = (id: number) => {
+
+    const valueToChange = collections[currentCollection].findIndex(card => card.id == id);
+
+    console.log(valueToChange);
   }
 
-  const handleAnswerChange = () => {
+  const handleQuestionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    
+  }
+
+  const handleAnswerChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     console.log("Answer Change");
   }
 
@@ -112,6 +119,7 @@ function App(): any {
             handleQuestionChange={handleQuestionChange}
             handleAnswerChange={handleAnswerChange}
             handleDeleteClick={handleDeleteCard}
+            handleEditClick={handleEditClick}
             question={question}
             answer={answer}
             cards={collections[currentCollection]}
