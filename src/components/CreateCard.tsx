@@ -4,6 +4,7 @@ type CreateCardProps = {
   handleSubmit?: React.FormEventHandler<HTMLFormElement>,
   handleAnswer?: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion?: React.ChangeEventHandler<HTMLInputElement>,
+  action: string, 
   question: string,
   answer: string,
   children?: string | undefined,
@@ -13,6 +14,7 @@ const CreateCard = ({
   handleSubmit, 
   handleQuestion, 
   handleAnswer, 
+  action,
   question, 
   answer, 
   children,
@@ -43,12 +45,12 @@ const CreateCard = ({
               name="Answer" 
               rows={6}
             />
-            <input className="btn btn-primary" type="submit" value="Add Card" />
+            <input className="btn btn-primary" type="submit" value={action} />
           </div>
         </form>
      </div>
      <div style={{display: addCard ? 'none' : 'block'}} className="front-side">
-      <p>{children} Add New Card</p>
+      <p>{} Card</p>
      </div>
     </div>
   )

@@ -82,6 +82,7 @@ const Collection = ({
             handleAnswer={handleAnswer} 
             answer={answer} 
             question={question} 
+            action={"Add Card"}
           >+
           </CreateCard>
         </div>

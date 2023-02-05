@@ -16,7 +16,6 @@ interface Collections {
   [currentCollection: string]: Array<Card>,  
 }
 
-
 function App(): any {
 
   const [collections, setCollections] = React.useState<Collections>(data);
@@ -29,9 +28,6 @@ function App(): any {
   const [editCard, setEditCard] = React.useState<Array<number>>([]);
   const [editQuestion, setEditQuestion] = React.useState<string>('');
   const [editAnswer, setEditAnswer] = React.useState<string>('');
-
-
-  console.log(collections);
 
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {

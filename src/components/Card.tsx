@@ -34,6 +34,7 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
         <CreateCard 
           question={editQuestion} 
           answer={editAnswer} 
+          action={"Edit Card"}
           handleAnswer={handleAnswerChange} 
           handleQuestion={handleQuestionChange} 
           handleSubmit={handleEditSubmit}
