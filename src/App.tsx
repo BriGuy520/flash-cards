@@ -25,6 +25,9 @@ function App(): any {
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
 
+  const [editCard, setEditCard] = React.useState<number|null>(null);
+
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -65,6 +68,7 @@ function App(): any {
 
     const valueToChange = collections[currentCollection].findIndex(card => card.id == id);
 
+    setEditCard(id);
     console.log(valueToChange);
   }
 
@@ -120,6 +124,7 @@ function App(): any {
             handleAnswerChange={handleAnswerChange}
             handleDeleteClick={handleDeleteCard}
             handleEditClick={handleEditClick}
+            editCard={editCard}
             question={question}
             answer={answer}
             cards={collections[currentCollection]}

@@ -25,6 +25,7 @@ interface CollectionProps {
   handleQuestionChange: React.ChangeEventHandler<HTMLInputElement>,
   handleDeleteClick: Function,
   handleEditClick: Function,
+  editCard: number|null,
   answer: string, 
   question: string,
   cards: Array<CardDetails>
@@ -39,6 +40,7 @@ const Collection = ({
   handleAnswerChange,
   handleDeleteClick,
   handleEditClick,
+  editCard,
   answer, 
   question,
   cards,
@@ -56,6 +58,7 @@ const Collection = ({
               <Card 
                 key={card.id} 
                 card={card} 
+                editCard={editCard}
                 handleDeleteCard={handleDeleteClick} 
                 handleEditCardClick={handleEditClick}
                 handleQuestionChange={handleQuestionChange}  
