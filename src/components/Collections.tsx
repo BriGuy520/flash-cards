@@ -5,7 +5,9 @@ interface CollectionsProps {
   handleAddCollection: React.KeyboardEventHandler<HTMLInputElement>,
   handleClick: (value: string) => void,
   collectionName: string,
-  collections: object,
+  collections: {
+    [key: string]: Array<object>
+  },
 }
 
 const Collections = ({createCollection, handleAddCollection, handleClick, collectionName, collections}: CollectionsProps) => {
@@ -14,10 +16,11 @@ const Collections = ({createCollection, handleAddCollection, handleClick, collec
 
   return (
     <div className="p-2 lg-row-2">
-      <p><strong>Collections</strong></p>
+      <p><strong>Collections</strong> ({collectionList.length})</p>
       <ul className="collections-list">
         {collectionList.map(collection => {
-          return <li key={collection} onClick={() => handleClick(collection)}>{collection}</li>
+          const total: number = collections[collection].length;
+          return <li key={collection} onClick={() => handleClick(collection)}>{collection} ({total})</li>
         })}
         <li><input className="add-collection" onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/></li>
       </ul>
