@@ -17,14 +17,13 @@ const Collections = ({createCollection, handleAddCollection, handleClick, collec
 
   return (
     <div className="p-2 lg-row-2">
-      <p><strong>Collections</strong> ({collectionList.length})</p>
+      <p className="mb-1"><strong>Collections</strong> ({collectionList.length})</p>
       <ul className="collections-list">
         {collectionList.map(collection => {
-          console.log(collectionName);
           const total: number = collections[collection].length;
           return <li className={collection === currentCollection ? 'active' : ''} key={collection} onClick={() => handleClick(collection)}>{collection} ({total})</li>
         })}
-        <li><input className="add-collection" onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/></li>
+        <li className="pl-0 ml-0"><input className="add-collection" onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/></li>
       </ul>
       
     </div>

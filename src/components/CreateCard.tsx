@@ -50,7 +50,7 @@ const CreateCard = ({
         </form>
      </div>
      <div style={{display: addCard ? 'none' : 'block'}} className="front-side">
-      <p>{} Card</p>
+      <p>{children} Card</p>
      </div>
     </div>
   )

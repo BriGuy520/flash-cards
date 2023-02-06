@@ -44,7 +44,7 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
   } else {
 
     return (
-      <div className="card m-3 col-lg-3" onClick={handleCardClick}>
+      <div className="card m-3" onClick={handleCardClick}>
         <div className="flip-card-inner">
           <button className="edit-icon" onClick={() => handleEditCardClick(card.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
           <button className="delete-icon" onClick={() => handleDeleteCard(card.id)}><FontAwesomeIcon icon={faTrash} /></button>

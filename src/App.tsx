@@ -141,7 +141,7 @@ function App(): any {
             handleClick={handleClick}
           />
         </div>
-        <div className="collection-view row col-lg-10"> 
+        <div className="collection-view col-lg-10 px-0"> 
           <Collection 
             selectedCollection={currentCollection} 
             handleSubmit={handleSubmit} 
