@@ -2,8 +2,19 @@
   padding: 40px 2%;
 }
 
+ul.collections-list {
+  padding-left: 0.5rem;
+}
+
 .collections-list li {
   padding: 2px 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.collections-list li.active {
+  background: blue;
+  color: #fff;
 }
 
 .add-collection {

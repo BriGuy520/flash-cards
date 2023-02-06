@@ -136,6 +136,7 @@ function App(): any {
             createCollection={createCollection} 
             collectionName={collectionName} 
             handleAddCollection={handleKeyDown} 
+            currentCollection={currentCollection}
             collections={collections}
             handleClick={handleClick}
           />
