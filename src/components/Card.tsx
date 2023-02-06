@@ -25,6 +25,8 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
+    console.log(handleEditSubmit);
+
     setShowQuestion(!showQuestion);
   }
 

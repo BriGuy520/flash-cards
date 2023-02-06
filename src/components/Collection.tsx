@@ -52,8 +52,6 @@ const Collection = ({
   cards,
  }: CollectionProps) => {
 
-
-
   return (
     <div className="border collection-content py-3">
       <h1>{selectedCollection} Collection</h1>
