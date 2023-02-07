@@ -24,8 +24,9 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
-    
-    setShowQuestion(!showQuestion);  
+    console.log(handleEditSubmit);
+
+    setShowQuestion(!showQuestion);
   }
 
   if(editCard[0] === card.id){
@@ -34,6 +35,7 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
         <CreateCard 
           question={editQuestion} 
           answer={editAnswer} 
+          action={"Edit Card"}
           handleAnswer={handleAnswerChange} 
           handleQuestion={handleQuestionChange} 
           handleSubmit={handleEditSubmit}
@@ -43,7 +45,7 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
   } else {
 
     return (
-      <div className="card m-3 col-lg-3" onClick={handleCardClick}>
+      <div className="card m-3" onClick={handleCardClick}>
         <div className="flip-card-inner">
           <button className="edit-icon" onClick={() => handleEditCardClick(card.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
           <button className="delete-icon" onClick={() => handleDeleteCard(card.id)}><FontAwesomeIcon icon={faTrash} /></button>

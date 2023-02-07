@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Collection from './components/Collection';
 import Collections from './components/Collections';
+import { data } from './db/data';
 
 const initialValue: string = "Start New Collection...";
 
@@ -15,10 +16,9 @@ interface Collections {
   [currentCollection: string]: Array<Card>,  
 }
 
-
 function App(): any {
 
-  const [collections, setCollections] = React.useState<Collections>({});
+  const [collections, setCollections] = React.useState<Collections>(data);
   const [collectionName, setCollectionName] = React.useState<string>(initialValue);
   const [currentCollection, setCurrentCollection] = React.useState<string>('');
 
@@ -117,6 +117,7 @@ function App(): any {
       // Update state when enter key is pressed
 
       setCollections({...collections, [collectionName]: []});
+      setCurrentCollection(collectionName);
       setCollectionName(initialValue);
     }
   }
@@ -136,11 +137,12 @@ function App(): any {
             createCollection={createCollection} 
             collectionName={collectionName} 
             handleAddCollection={handleKeyDown} 
+            currentCollection={currentCollection}
             collections={collections}
             handleClick={handleClick}
           />
         </div>
-        <div className="collection-view row col-lg-10"> 
+        <div className="collection-view col-lg-10 px-0"> 
           <Collection 
             selectedCollection={currentCollection} 
             handleSubmit={handleSubmit} 

@@ -52,12 +52,10 @@ const Collection = ({
   cards,
  }: CollectionProps) => {
 
-
-
   return (
     <div className="border collection-content py-3">
       <h1>{selectedCollection} Collection</h1>
-      <div className="row ">
+      <div className="row">
     
         {cards?.map(card => {
             return (
@@ -75,13 +73,14 @@ const Collection = ({
             );
           })}
 
-        <div className="col-lg-3 card m-3">   
+        <div className="card m-3">   
           <CreateCard 
             handleSubmit={handleSubmit} 
             handleQuestion={handleQuestion} 
             handleAnswer={handleAnswer} 
             answer={answer} 
             question={question} 
+            action={"Add Card"}
           >+
           </CreateCard>
         </div>

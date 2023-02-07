@@ -2,8 +2,24 @@
   padding: 40px 2%;
 }
 
+ul.collections-list {
+  padding-left: 0.5rem;
+}
+
 .collections-list li {
-  padding: 2px 0;
+  padding: 2px 10px;
+  margin: 2px 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+.collections-list li.active {
+  background: blue;
+  color: #fff;
+}
+
+.collections-list li input {
+  padding: -2px;
 }
 
 .add-collection {
@@ -12,20 +28,45 @@
 
 .card {
   box-shadow: 0px 5px 3px 0px #e0dbdb;
-  width: 350px;
-  height: auto;
+  min-height: 200px;
+  width: 90%;
+}
+
+@media(min-width: 600px){
+  .card {
+    width: 44%;
+  }
+}
+
+@media(min-width: 769px){
+  .card {
+    width: 29%;
+  }
 }
 
 .flip-card-inner button {
   position: absolute;
 }
 
+.delete-icon, .edit-icon {
+  border: none;
+  background: #fff;
+}
+
 .delete-icon {
   right: 0;
 }
 
+.delete-icon:hover {
+  color: red;
+}
+
 .edit-icon {
   right: 30px
+}
+
+.edit-icon:hover {
+  color: rgb(231, 209, 12);
 }
 
 textarea.form-control {
@@ -83,5 +124,5 @@ body {
 }
 
 .card-body {
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
