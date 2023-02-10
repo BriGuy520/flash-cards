@@ -1,8 +1,9 @@
 import React from 'react';
+import { isConditionalExpression } from 'typescript';
 
 type CreateCardProps = {
-  handleSubmit?: React.FormEventHandler<HTMLFormElement>,
-  handleAnswer?: React.ChangeEventHandler<HTMLTextAreaElement>,
+  handleSubmit: React.FormEventHandler<HTMLFormElement>,
+  handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion?: React.ChangeEventHandler<HTMLInputElement>,
   action: string, 
   question: string,
@@ -20,11 +21,11 @@ const CreateCard = ({
   children,
 }: CreateCardProps) => {
 
-  const [addCard, setAddCard] = React.useState<boolean>(true);
+  const [cardFront, setCardFront] = React.useState<boolean>(false);
 
   return (
     <div className="d-flex flex-column m-3">    
-     <div style={{display: addCard ? 'block' : 'none'}} className="form-side">
+     <div style={{display: cardFront ? 'none' : 'block'}} className="form-side">
         <form onSubmit={handleSubmit}>
           <div className="form-group my-2">
             <label htmlFor="Question">Question</label>
@@ -45,11 +46,11 @@ const CreateCard = ({
               name="Answer" 
               rows={6}
             />
-            <input className="btn btn-primary" type="submit" value={action} />
+            <input className="btn btn-primary" type="submit" value={action} onClick={() => setCardFront(true)} />
           </div>
         </form>
      </div>
-     <div style={{display: addCard ? 'none' : 'block'}} className="front-side">
+     <div style={{display: cardFront ? 'block' : 'none'}} className="front-side" onClick={() => setCardFront(false)}>
       <p>{children} Card</p>
      </div>
     </div>
