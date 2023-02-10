@@ -44,6 +44,8 @@ function App(): any {
     updateArray.push(newCard);
 
     setCollections({...collections, [currentCollection]: updateArray}); 
+    setQuestion('');
+    setAnswer('');
   }
 
   const handleAnswer = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

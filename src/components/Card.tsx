@@ -3,6 +3,7 @@ import { CardDetails } from "./Collection";
 import CreateCard from './CreateCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { click } from '@testing-library/user-event/dist/click';
 
 
 type CardProps = {
@@ -24,9 +25,16 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
-    console.log(handleEditSubmit);
+    const clickedElementValues = e.target as HTMLDivElement;
+    const elementLength = clickedElementValues.innerHTML.length;
+    
+    console.log(clickedElementValues.innerHTML[elementLength - 1]);
 
-    setShowQuestion(!showQuestion);
+    if(clickedElementValues.innerHTML[elementLength - 1] === "?"){
+      setShowQuestion(false);
+    } else {
+      setShowQuestion(!showQuestion);
+    }
   }
 
   if(editCard[0] === card.id){
@@ -36,6 +44,7 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
           question={editQuestion} 
           answer={editAnswer} 
           action={"Edit Card"}
+          showQuestion={showQuestion}
           handleAnswer={handleAnswerChange} 
           handleQuestion={handleQuestionChange} 
           handleSubmit={handleEditSubmit}

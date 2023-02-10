@@ -5,6 +5,7 @@ type CreateCardProps = {
   handleSubmit: React.FormEventHandler<HTMLFormElement>,
   handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion?: React.ChangeEventHandler<HTMLInputElement>,
+  showQuestion?: boolean,
   action: string, 
   question: string,
   answer: string,
@@ -15,11 +16,14 @@ const CreateCard = ({
   handleSubmit, 
   handleQuestion, 
   handleAnswer, 
+  showQuestion,
   action,
   question, 
   answer, 
   children,
 }: CreateCardProps) => {
+
+  console.log(showQuestion);
 
   const [cardFront, setCardFront] = React.useState<boolean>(false);
 
