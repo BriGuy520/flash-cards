@@ -23,8 +23,6 @@ const CreateCard = ({
   children,
 }: CreateCardProps) => {
 
-  console.log(showQuestion);
-
   const [cardFront, setCardFront] = React.useState<boolean>(false);
 
   return (

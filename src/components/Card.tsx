@@ -22,19 +22,20 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
 
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
+  const editRef = React.useRef(editCard);
+
+ React.useEffect(() => {
+
+  console.log(editCard);
+  if(editCard.length){
+    setShowQuestion(true);
+  }
+ }, [editCard])
+
   const handleCardClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
 
-    const clickedElementValues = e.target as HTMLDivElement;
-    const elementLength = clickedElementValues.innerHTML.length;
-    
-    console.log(clickedElementValues.innerHTML[elementLength - 1]);
-
-    if(clickedElementValues.innerHTML[elementLength - 1] === "?"){
-      setShowQuestion(false);
-    } else {
-      setShowQuestion(!showQuestion);
-    }
+    setShowQuestion(!showQuestion);    
   }
 
   if(editCard[0] === card.id){
