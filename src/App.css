@@ -2,6 +2,11 @@
   padding: 40px 2%;
 }
 
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 ul.collections-list {
   padding-left: 0.5rem;
 }

@@ -52,13 +52,18 @@ const Collection = ({
   cards,
  }: CollectionProps) => {
 
+  const [highScore, setHighScore] = React.useState<number>(0);
+
   return (
     <div className="border collection-content py-3">
       <div className="collection-header">
         <h1>{selectedCollection} Collection</h1>
         <div className="">
-          <button>Play</button>
+          <button className="btn btn-outline-primary">Play</button>
         </div>
+      </div>
+      <div className="">
+        High Score: {highScore}
       </div>
       <div className="row">
     
