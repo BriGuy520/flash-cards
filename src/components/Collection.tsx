@@ -54,7 +54,12 @@ const Collection = ({
 
   return (
     <div className="border collection-content py-3">
-      <h1>{selectedCollection} Collection</h1>
+      <div className="collection-header">
+        <h1>{selectedCollection} Collection</h1>
+        <div className="">
+          <button>Play</button>
+        </div>
+      </div>
       <div className="row">
     
         {cards?.map(card => {
