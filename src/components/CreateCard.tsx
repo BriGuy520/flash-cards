@@ -1,5 +1,4 @@
 import React from 'react';
-import { isConditionalExpression } from 'typescript';
 
 type CreateCardProps = {
   handleSubmit: React.FormEventHandler<HTMLFormElement>,

@@ -70,7 +70,7 @@ function App(): any {
 
   const handleEditClick = (id: number) => {
 
-    const valueToChange = collections[currentCollection].findIndex(card => card.id == id);
+    const valueToChange = collections[currentCollection].findIndex(card => card.id === id);
 
     setEditCard([id, valueToChange]);
     setEditQuestion(collections[currentCollection][valueToChange].question);

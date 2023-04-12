@@ -5,7 +5,7 @@ const Game = () => {
 
 
   return (
-    <div>
+    <div className="game-container">
       <h1>Game Mode</h1>
     </div>
   )

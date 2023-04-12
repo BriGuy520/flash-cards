@@ -1,7 +1,6 @@
 import React from 'react';
-import Card from './Card';
-import CreateCard from './CreateCard';
 import CardList from './CardList';
+import Game from './Game';
 
 // interface Cards {
 //   cards: {
@@ -57,24 +56,16 @@ const Collection = ({
   const [playGame, setPlayGame] = React.useState<boolean>(false);
 
 
-  const gameMode = () => {
-    console.log("Game Mode Initiated");
+  const gameMode = (): void => {
 
     setPlayGame(!playGame);
   }
 
+  const collectionDisplayType = (): void => {
 
-  return (
-    <div className="border collection-content py-3">
-      <div className="collection-header">
-        <h1>{selectedCollection} Collection</h1>
-        <div className="">
-          <button onClick={gameMode} className="btn btn-outline-primary">Play</button>
-        </div>
-      </div>
-      <div className="">
-        High Score: {highScore}
-      </div> 
+    if(playGame){
+      <Game />
+    } else {
       <CardList
         selectedCollection={selectedCollection} 
         handleSubmit={handleSubmit} 
@@ -92,6 +83,41 @@ const Collection = ({
         answer={answer}
         cards={cards}
       />
+    }
+  }
+
+  return (
+    <div className="border collection-content py-3">
+      <div className="collection-header">
+        <h1>{selectedCollection} Collection</h1>
+        <div className="">
+          <button onClick={gameMode} className="btn btn-outline-primary">Play</button>
+        </div>
+      </div>
+      <div className="">
+        High Score: {highScore}
+      </div> 
+      {playGame ?  
+        <Game />
+      :
+        <CardList
+          selectedCollection={selectedCollection} 
+          handleSubmit={handleSubmit} 
+          handleQuestion={handleQuestion}
+          handleAnswer={handleAnswer}
+          handleQuestionChange={handleQuestionChange}
+          handleAnswerChange={handleAnswerChange}
+          handleEditSubmit={handleEditSubmit}
+          handleDeleteClick={handleDeleteClick}
+          handleEditClick={handleEditClick}
+          editQuestion={editQuestion}
+          editAnswer={editAnswer}
+          editCard={editCard}
+          question={question}
+          answer={answer}
+          cards={cards}
+        />
+      }
     </div>
   )
   

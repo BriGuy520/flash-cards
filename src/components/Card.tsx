@@ -3,8 +3,6 @@ import { CardDetails } from "./Collection";
 import CreateCard from './CreateCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
-import { click } from '@testing-library/user-event/dist/click';
-
 
 type CardProps = {
   card: CardDetails,
@@ -22,10 +20,8 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
 
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
-  const editRef = React.useRef(editCard);
-
  React.useEffect(() => {
-  
+
   if(editCard.length){
     setShowQuestion(true);
   }
