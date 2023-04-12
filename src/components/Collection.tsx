@@ -61,31 +61,6 @@ const Collection = ({
     setPlayGame(!playGame);
   }
 
-  const collectionDisplayType = (): void => {
-
-    if(playGame){
-      <Game />
-    } else {
-      <CardList
-        selectedCollection={selectedCollection} 
-        handleSubmit={handleSubmit} 
-        handleQuestion={handleQuestion}
-        handleAnswer={handleAnswer}
-        handleQuestionChange={handleQuestionChange}
-        handleAnswerChange={handleAnswerChange}
-        handleEditSubmit={handleEditSubmit}
-        handleDeleteClick={handleDeleteClick}
-        handleEditClick={handleEditClick}
-        editQuestion={editQuestion}
-        editAnswer={editAnswer}
-        editCard={editCard}
-        question={question}
-        answer={answer}
-        cards={cards}
-      />
-    }
-  }
-
   return (
     <div className="border collection-content py-3">
       <div className="collection-header">
@@ -98,7 +73,11 @@ const Collection = ({
         High Score: {highScore}
       </div> 
       {playGame ?  
-        <Game />
+        <Game
+          question={question}
+          answer={answer}
+          cards={cards}
+        />
       :
         <CardList
           selectedCollection={selectedCollection} 

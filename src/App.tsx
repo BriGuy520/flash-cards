@@ -12,13 +12,13 @@ type Card = {
   answer: string, 
 }
 
-interface Collections {
+interface CollectionsInterface {
   [currentCollection: string]: Array<Card>,  
 }
 
 function App(): any {
 
-  const [collections, setCollections] = React.useState<Collections>(data);
+  const [collections, setCollections] = React.useState<CollectionsInterface>(data);
   const [collectionName, setCollectionName] = React.useState<string>(initialValue);
   const [currentCollection, setCurrentCollection] = React.useState<string>('');
 
