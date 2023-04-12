@@ -66,7 +66,7 @@ const Collection = ({
       <div className="collection-header">
         <h1>{selectedCollection} Collection</h1>
         <div className="">
-          <button onClick={gameMode} className="btn btn-outline-primary">Play</button>
+          <button onClick={gameMode} className="btn btn-outline-primary">{playGame ? "End Game" : "Play"}</button>
         </div>
       </div>
       <div className="">
