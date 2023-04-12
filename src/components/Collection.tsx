@@ -53,13 +53,20 @@ const Collection = ({
  }: CollectionProps) => {
 
   const [highScore, setHighScore] = React.useState<number>(0);
+  const [playGame, setPlayGame] = React.useState<boolean>(false);
+
+
+  const gameMode = () => {
+
+  }
+
 
   return (
     <div className="border collection-content py-3">
       <div className="collection-header">
         <h1>{selectedCollection} Collection</h1>
         <div className="">
-          <button className="btn btn-outline-primary">Play</button>
+          <button onClick={gameMode} className="btn btn-outline-primary">Play</button>
         </div>
       </div>
       <div className="">
@@ -79,7 +86,8 @@ const Collection = ({
                 editAnswer={editAnswer}
                 handleEditSubmit={handleEditSubmit}
                 handleQuestionChange={handleQuestionChange}  
-                handleAnswerChange={handleAnswerChange} />
+                handleAnswerChange={handleAnswerChange} 
+              />
             );
           })}
 
