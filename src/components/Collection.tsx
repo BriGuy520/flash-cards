@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import CreateCard from './CreateCard';
+import CardList from './CardList';
 
 // interface Cards {
 //   cards: {
@@ -16,7 +17,7 @@ export type CardDetails = {
   answer: string, 
 }
 
-interface CollectionProps {
+export interface CollectionProps {
   selectedCollection: string,
   handleSubmit: React.FormEventHandler<HTMLFormElement>, 
   handleEditSubmit: React.FormEventHandler<HTMLFormElement>,
@@ -57,7 +58,9 @@ const Collection = ({
 
 
   const gameMode = () => {
+    console.log("Game Mode Initiated");
 
+    setPlayGame(!playGame);
   }
 
 
@@ -71,38 +74,24 @@ const Collection = ({
       </div>
       <div className="">
         High Score: {highScore}
-      </div>
-      <div className="row">
-    
-        {cards?.map(card => {
-            return (
-              <Card 
-                key={card.id} 
-                card={card} 
-                editCard={editCard}
-                handleDeleteCard={handleDeleteClick} 
-                handleEditCardClick={handleEditClick}
-                editQuestion={editQuestion}
-                editAnswer={editAnswer}
-                handleEditSubmit={handleEditSubmit}
-                handleQuestionChange={handleQuestionChange}  
-                handleAnswerChange={handleAnswerChange} 
-              />
-            );
-          })}
-
-        <div className="card m-3">   
-          <CreateCard 
-            handleSubmit={handleSubmit} 
-            handleQuestion={handleQuestion} 
-            handleAnswer={handleAnswer} 
-            answer={answer} 
-            question={question} 
-            action={"Add Card"}
-          >+
-          </CreateCard>
-        </div>
-      </div>  
+      </div> 
+      <CardList
+        selectedCollection={selectedCollection} 
+        handleSubmit={handleSubmit} 
+        handleQuestion={handleQuestion}
+        handleAnswer={handleAnswer}
+        handleQuestionChange={handleQuestionChange}
+        handleAnswerChange={handleAnswerChange}
+        handleEditSubmit={handleEditSubmit}
+        handleDeleteClick={handleDeleteClick}
+        handleEditClick={handleEditClick}
+        editQuestion={editQuestion}
+        editAnswer={editAnswer}
+        editCard={editCard}
+        question={question}
+        answer={answer}
+        cards={cards}
+      />
     </div>
   )
   

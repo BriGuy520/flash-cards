@@ -25,8 +25,7 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
   const editRef = React.useRef(editCard);
 
  React.useEffect(() => {
-
-  console.log(editCard);
+  
   if(editCard.length){
     setShowQuestion(true);
   }
