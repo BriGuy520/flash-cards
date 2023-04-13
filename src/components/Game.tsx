@@ -1,4 +1,5 @@
 import React from 'react';
+import CardComponents from './CardComponents';
 
 import { CardDetails } from './Collection';
 
@@ -15,11 +16,11 @@ const Game = ({question, answer, cards}: GameProps) => {
   console.log(cards);
 
   return (
-    <div className="game-container">
-      {cards.length}
+    <div className="game-container py-4">
+      <h3>{currentCard} / {cards.length}</h3>
       <h1>Game Mode</h1>
       <div className="game-card">
-        
+        {/* <CardComponents card={cards[currentCard]} /> */}
       </div>
     </div>
   )

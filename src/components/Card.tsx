@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardDetails } from "./Collection";
 import CreateCard from './CreateCard';
+import CardComponents from './CardComponents';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
@@ -54,12 +55,7 @@ const Card = ({card, editCard, editQuestion, editAnswer, handleEditSubmit, handl
         <div className="flip-card-inner">
           <button className="edit-icon" onClick={() => handleEditCardClick(card.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
           <button className="delete-icon" onClick={() => handleDeleteCard(card.id)}><FontAwesomeIcon icon={faTrash} /></button>
-          <div style={{display: showQuestion ? 'block' : 'none'}} className="card-front card-body">
-            <h2>{card.question}</h2>
-          </div>
-          <div style={{display: showQuestion ? 'none' : 'block'}} className="card-back card-body">
-            <p>{card.answer}</p>
-          </div>
+          <CardComponents card={card} showQuestion={showQuestion} />
         </div>
       </div>
     )
