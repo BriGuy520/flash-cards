@@ -63,12 +63,13 @@ const Collection = ({
     }
   }, [editCard])
 
-    const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
-      e.preventDefault();
+  const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
 
-      setShowQuestion(!showQuestion);    
-    }
+    console.log(cards);
 
+    setShowQuestion(!showQuestion);    
+  }
 
   const gameMode = (): void => {
 

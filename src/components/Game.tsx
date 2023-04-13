@@ -1,6 +1,6 @@
 import React from 'react';
 import CardComponents from './CardComponents';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
 
 import { CardDetails } from './Collection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -23,13 +23,13 @@ const Game = ({question, answer, cards, showQuestion, handleCardStateClick}: Gam
 
   return (
     <div className="game-container py-4">
-      <h3>{currentCard} / {cards.length}</h3>
-      <h1>Game Mode</h1>
+      <h3>{currentCard + 1} / {cards.length}</h3>
       <div className="game-card" onClick={handleCardStateClick}> 
         <CardComponents card={cards[currentCard]} showQuestion={showQuestion} />
       </div>
       <div className="">
         <button><FontAwesomeIcon icon={faCheck} /></button>
+        <button><FontAwesomeIcon icon={faX} /></button>
       </div>
     </div>
   )

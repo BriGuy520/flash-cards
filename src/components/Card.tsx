@@ -46,6 +46,7 @@ const Card = ({
         />
       </div>      
     ); 
+    
   } else {
 
     return (
@@ -58,8 +59,6 @@ const Card = ({
       </div>
     )
   }
-
-  
 }
 
 export default Card;
