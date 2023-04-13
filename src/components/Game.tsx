@@ -1,7 +1,9 @@
 import React from 'react';
 import CardComponents from './CardComponents';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 import { CardDetails } from './Collection';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface GameProps {
   answer: string, 
@@ -21,6 +23,9 @@ const Game = ({question, answer, cards}: GameProps) => {
       <h1>Game Mode</h1>
       <div className="game-card">
         {/* <CardComponents card={cards[currentCard]} /> */}
+      </div>
+      <div className="">
+        <button><FontAwesomeIcon icon={faCheck} /></button>
       </div>
     </div>
   )

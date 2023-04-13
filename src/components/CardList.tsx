@@ -4,6 +4,12 @@ import CreateCard from './CreateCard';
 
 import { CollectionProps } from './Collection';
 
+type CardActionProps = {
+  handleCardStateClick: React.MouseEventHandler<HTMLDivElement>,
+  showQuestion: boolean,
+}
+
+type CardListProps = CollectionProps & CardActionProps;
 
 const CardList = ({
   selectedCollection, 
@@ -13,15 +19,17 @@ const CardList = ({
   handleQuestionChange, 
   handleAnswerChange,
   handleEditSubmit,
+  handleCardStateClick,
   handleDeleteClick,
   handleEditClick,
   editCard,
   editQuestion,
   editAnswer,
+  showQuestion,
   answer, 
   question,
   cards,
- }: CollectionProps) => {
+ }: CardListProps) => {
 
   return (
     <div className="row">
@@ -31,11 +39,13 @@ const CardList = ({
             <Card 
               key={card.id} 
               card={card} 
+              showQuestion={showQuestion}
               editCard={editCard}
               handleDeleteCard={handleDeleteClick} 
               handleEditCardClick={handleEditClick}
               editQuestion={editQuestion}
               editAnswer={editAnswer}
+              handleCardStateClick={handleCardStateClick}
               handleEditSubmit={handleEditSubmit}
               handleQuestionChange={handleQuestionChange}  
               handleAnswerChange={handleAnswerChange} 

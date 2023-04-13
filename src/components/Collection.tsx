@@ -54,6 +54,20 @@ const Collection = ({
 
   const [highScore, setHighScore] = React.useState<number>(0);
   const [playGame, setPlayGame] = React.useState<boolean>(false);
+  const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
+
+  React.useEffect(() => {
+
+    if(editCard.length){
+      setShowQuestion(true);
+    }
+  }, [editCard])
+
+    const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.preventDefault();
+
+      setShowQuestion(!showQuestion);    
+    }
 
 
   const gameMode = (): void => {
@@ -84,6 +98,8 @@ const Collection = ({
           handleSubmit={handleSubmit} 
           handleQuestion={handleQuestion}
           handleAnswer={handleAnswer}
+          showQuestion={showQuestion}
+          handleCardStateClick={handleCardStateClick}
           handleQuestionChange={handleQuestionChange}
           handleAnswerChange={handleAnswerChange}
           handleEditSubmit={handleEditSubmit}
