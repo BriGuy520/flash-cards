@@ -10,11 +10,17 @@ interface GameProps {
 
 const Game = ({question, answer, cards}: GameProps) => {
 
+  const [currentCard, setCurrentCard] = React.useState(0);
+
+  console.log(cards);
 
   return (
     <div className="game-container">
       {cards.length}
       <h1>Game Mode</h1>
+      <div className="game-card">
+        
+      </div>
     </div>
   )
 
