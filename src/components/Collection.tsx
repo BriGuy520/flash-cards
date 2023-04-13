@@ -88,6 +88,8 @@ const Collection = ({
       </div> 
       {playGame ?  
         <Game
+          handleCardStateClick={handleCardStateClick}
+          showQuestion={showQuestion}
           question={question}
           answer={answer}
           cards={cards}

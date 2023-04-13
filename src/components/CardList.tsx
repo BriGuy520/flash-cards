@@ -4,7 +4,7 @@ import CreateCard from './CreateCard';
 
 import { CollectionProps } from './Collection';
 
-type CardActionProps = {
+export type CardActionProps = {
   handleCardStateClick: React.MouseEventHandler<HTMLDivElement>,
   showQuestion: boolean,
 }

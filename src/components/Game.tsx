@@ -5,13 +5,17 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { CardDetails } from './Collection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-interface GameProps {
+import { CardActionProps } from './CardList';
+
+type CardProps = {
   answer: string, 
   question: string,
   cards: Array<CardDetails>
 }
 
-const Game = ({question, answer, cards}: GameProps) => {
+type GameProps = CardActionProps & CardProps;
+
+const Game = ({question, answer, cards, showQuestion, handleCardStateClick}: GameProps) => {
 
   const [currentCard, setCurrentCard] = React.useState(0);
 
@@ -21,8 +25,8 @@ const Game = ({question, answer, cards}: GameProps) => {
     <div className="game-container py-4">
       <h3>{currentCard} / {cards.length}</h3>
       <h1>Game Mode</h1>
-      <div className="game-card">
-        {/* <CardComponents card={cards[currentCard]} /> */}
+      <div className="game-card" onClick={handleCardStateClick}> 
+        <CardComponents card={cards[currentCard]} showQuestion={showQuestion} />
       </div>
       <div className="">
         <button><FontAwesomeIcon icon={faCheck} /></button>
