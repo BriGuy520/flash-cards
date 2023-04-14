@@ -1,11 +1,10 @@
-import React from 'react';
 import Card from './Card';
 import CreateCard from './CreateCard';
 
 import { CollectionProps } from './Collection';
 
 export type CardActionProps = {
-  handleCardStateClick: React.MouseEventHandler<HTMLDivElement>,
+  handleCardStateClick: Function,
   showQuestion: boolean,
 }
 

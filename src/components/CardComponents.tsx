@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardDetails } from './Collection';
+import { CardDetails } from '../App';
 
 type CardComponentsProp = {
   card: CardDetails,

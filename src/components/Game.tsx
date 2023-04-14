@@ -2,10 +2,11 @@ import React from 'react';
 import CardComponents from './CardComponents';
 import { faCheck, faX, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-import { CardDetails } from './Collection';
+import { CardDetails } from '../App';
+import { CardActionProps } from './CardList';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { CardActionProps } from './CardList';
 
 type CardProps = {
   answer: string, 
@@ -22,10 +23,8 @@ const Game = ({question, answer, cards, showQuestion, handleCardStateClick}: Gam
   const nextCard = () => {
 
     if(currentCard === cards.length - 1){
-
       setCurrentCard(0);
     } else {
-
       setCurrentCard(currentCard + 1);
     }
   }
@@ -33,10 +32,8 @@ const Game = ({question, answer, cards, showQuestion, handleCardStateClick}: Gam
   const prevCard = () => {
     
     if(currentCard === 0){
-
       setCurrentCard(cards.length - 1);
     } else {
-
       setCurrentCard(currentCard - 1);
     }
   }
@@ -46,7 +43,7 @@ const Game = ({question, answer, cards, showQuestion, handleCardStateClick}: Gam
       <h3>{currentCard + 1} / {cards.length}</h3>
       <div style={{'display': 'flex'}}>
         <button className="chevron-left-btn" onClick={prevCard}><FontAwesomeIcon icon={faChevronLeft} /></button>
-        <div className="game-card" onClick={handleCardStateClick}> 
+        <div className="game-card" onClick={handleCardStateClick(cards[currentCard].id)}> 
           <CardComponents card={cards[currentCard]} showQuestion={showQuestion} />
         </div>
         <button className="chevron-right-btn" onClick={nextCard}><FontAwesomeIcon icon={faChevronRight} /></button>

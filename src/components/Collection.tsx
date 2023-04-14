@@ -2,6 +2,8 @@ import React from 'react';
 import CardList from './CardList';
 import Game from './Game';
 
+import { CardDetails } from '../App';
+
 // interface Cards {
 //   cards: {
 //     id: number,
@@ -10,11 +12,6 @@ import Game from './Game';
 //   }[]
 // }
 
-export type CardDetails = {
-  id: number,
-  question: string,
-  answer: string, 
-}
 
 export interface CollectionProps {
   selectedCollection: string,
@@ -63,12 +60,11 @@ const Collection = ({
     }
   }, [editCard])
 
-  const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const handleCardStateClick = (id: number) => {
 
-    console.log(cards);
+    console.log(selectedCollection);
 
-    setShowQuestion(!showQuestion);    
+    // setShowQuestion(!showQuestion);    
   }
 
   const gameMode = (): void => {

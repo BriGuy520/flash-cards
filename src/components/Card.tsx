@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardDetails } from "./Collection";
+import { CardDetails } from "../App";
 import CreateCard from './CreateCard';
 import CardComponents from './CardComponents';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +13,7 @@ type CardProps = {
   showQuestion: boolean,
   handleDeleteCard: Function,
   handleEditCardClick: Function,
-  handleCardStateClick: React.MouseEventHandler<HTMLDivElement>,
+  handleCardStateClick: Function,
   handleQuestionChange: React.ChangeEventHandler<HTMLInputElement>,
   handleAnswerChange: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleEditSubmit: React.FormEventHandler<HTMLFormElement>,
@@ -46,11 +46,11 @@ const Card = ({
         />
       </div>      
     ); 
-    
+
   } else {
 
     return (
-      <div className="card m-3" onClick={handleCardStateClick}>
+      <div className="card m-3" onClick={handleCardStateClick(card.id)}>
         <div className="flip-card-inner">
           <button className="edit-icon" onClick={() => handleEditCardClick(card.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
           <button className="delete-icon" onClick={() => handleDeleteCard(card.id)}><FontAwesomeIcon icon={faTrash} /></button>

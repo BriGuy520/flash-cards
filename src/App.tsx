@@ -6,14 +6,14 @@ import { data } from './db/data';
 
 const initialValue: string = "Start New Collection...";
 
-type Card = {
+export type CardDetails = {
   id: number,
   question: string,
   answer: string, 
 }
 
 interface CollectionsInterface {
-  [currentCollection: string]: Array<Card>,  
+  [currentCollection: string]: Array<CardDetails>,  
 }
 
 function App(): any {
@@ -33,7 +33,7 @@ function App(): any {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const newCard: Card = {
+    const newCard: CardDetails = {
       id: Date.now(),
       question,
       answer,
@@ -62,7 +62,7 @@ function App(): any {
 
   const handleDeleteCard = (id: number) => {
   
-    const removeCard = collections[currentCollection].filter((collection: Card) => collection.id !== id);
+    const removeCard = collections[currentCollection].filter((collection: CardDetails) => collection.id !== id);
 
     setCollections({ ...collections, [currentCollection]: removeCard });
   }
