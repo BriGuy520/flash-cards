@@ -69,7 +69,6 @@ const Collection = ({
       </div> 
       {playGame ?  
         <Game
-
           question={question}
           answer={answer}
           cards={cards}

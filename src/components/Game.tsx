@@ -19,11 +19,11 @@ const Game = ({question, answer, cards}: CardProps) => {
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
   
-    const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
-      e.preventDefault();
-  
-      setShowQuestion(!showQuestion);    
-    }
+  const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+
+    setShowQuestion(!showQuestion);    
+  }
 
   const nextCard = () => {
 
