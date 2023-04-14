@@ -21,12 +21,24 @@ const Game = ({question, answer, cards, showQuestion, handleCardStateClick}: Gam
 
   const nextCard = () => {
 
-    setCurrentCard(currentCard + 1);
+    if(currentCard === cards.length - 1){
+
+      setCurrentCard(0);
+    } else {
+
+      setCurrentCard(currentCard + 1);
+    }
   }
 
   const prevCard = () => {
     
-    setCurrentCard(currentCard - 1);
+    if(currentCard === 0){
+
+      setCurrentCard(cards.length - 1);
+    } else {
+
+      setCurrentCard(currentCard - 1);
+    }
   }
 
   return (

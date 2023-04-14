@@ -49,6 +49,10 @@ ul.collections-list {
   min-height: 200px;
 }
 
+.card-front, .card-back {
+  text-align: center;
+}
+
 @media(min-width: 600px){
   .card {
     width: 44%;
