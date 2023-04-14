@@ -32,13 +32,20 @@ ul.collections-list {
 }
 
 .card, .game-card {
-  box-shadow: 0px 5px 3px 0px #e0dbdb;
-  width: 90%;
-  min-height: 300px;
   cursor: pointer;
 }
 
+.game-card {
+  box-shadow: 1px 5px 3px 0px #e0dbdb;
+  border: 1px solid #ccc;
+  width: 70%;
+  min-height: 300px;
+
+}
+
 .card {
+  box-shadow: 0px 5px 3px 0px #e0dbdb;
+  width: 90%;
   min-height: 200px;
 }
 
@@ -136,3 +143,42 @@ body {
 .card-body {
   padding: 80px 20px;
 }
+
+/* Game */
+
+.game-functions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.x-button, .check-button, .chevron-left-btn, .chevron-right-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.chevron-left-btn, .chevron-right-btn {
+  font-size: 24px;
+  margin: 20px;
+}
+
+.x-button, .check-button {
+  font-size: 36px;
+  margin: 10px;
+}
+
+.x-button, .check-button {
+  background-color: none;
+  border: none;
+  font-size: 36px;
+  margin: 10px;
+}
+
+.x-button {
+  color: rgb(184, 11, 11);
+}
+
+.check-button {
+  color: rgb(36, 163, 36);
+}
+

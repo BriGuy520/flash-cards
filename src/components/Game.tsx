@@ -1,6 +1,6 @@
 import React from 'react';
 import CardComponents from './CardComponents';
-import { faCheck, faX } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faX, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 import { CardDetails } from './Collection';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -19,17 +19,29 @@ const Game = ({question, answer, cards, showQuestion, handleCardStateClick}: Gam
 
   const [currentCard, setCurrentCard] = React.useState(0);
 
-  console.log(cards);
+  const nextCard = () => {
+
+    setCurrentCard(currentCard + 1);
+  }
+
+  const prevCard = () => {
+    
+    setCurrentCard(currentCard - 1);
+  }
 
   return (
     <div className="game-container py-4">
       <h3>{currentCard + 1} / {cards.length}</h3>
-      <div className="game-card" onClick={handleCardStateClick}> 
-        <CardComponents card={cards[currentCard]} showQuestion={showQuestion} />
-      </div>
-      <div className="">
-        <button><FontAwesomeIcon icon={faCheck} /></button>
-        <button><FontAwesomeIcon icon={faX} /></button>
+      <div style={{'display': 'flex'}}>
+        <button className="chevron-left-btn" onClick={prevCard}><FontAwesomeIcon icon={faChevronLeft} /></button>
+        <div className="game-card" onClick={handleCardStateClick}> 
+          <CardComponents card={cards[currentCard]} showQuestion={showQuestion} />
+        </div>
+        <button className="chevron-right-btn" onClick={nextCard}><FontAwesomeIcon icon={faChevronRight} /></button>
+        <div className="game-functions">
+          <button className="check-button"><FontAwesomeIcon icon={faCheck} /></button>
+          <button className="x-button"><FontAwesomeIcon icon={faX} /></button>
+        </div>
       </div>
     </div>
   )
