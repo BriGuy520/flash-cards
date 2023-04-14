@@ -12,7 +12,6 @@ import { CardDetails } from '../App';
 //   }[]
 // }
 
-
 export interface CollectionProps {
   selectedCollection: string,
   handleSubmit: React.FormEventHandler<HTMLFormElement>, 
@@ -51,21 +50,6 @@ const Collection = ({
 
   const [highScore, setHighScore] = React.useState<number>(0);
   const [playGame, setPlayGame] = React.useState<boolean>(false);
-  const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
-
-  React.useEffect(() => {
-
-    if(editCard.length){
-      setShowQuestion(true);
-    }
-  }, [editCard])
-
-  const handleCardStateClick = (id: number) => {
-
-    console.log(selectedCollection);
-
-    // setShowQuestion(!showQuestion);    
-  }
 
   const gameMode = (): void => {
 
@@ -85,8 +69,7 @@ const Collection = ({
       </div> 
       {playGame ?  
         <Game
-          handleCardStateClick={handleCardStateClick}
-          showQuestion={showQuestion}
+
           question={question}
           answer={answer}
           cards={cards}
@@ -97,8 +80,6 @@ const Collection = ({
           handleSubmit={handleSubmit} 
           handleQuestion={handleQuestion}
           handleAnswer={handleAnswer}
-          showQuestion={showQuestion}
-          handleCardStateClick={handleCardStateClick}
           handleQuestionChange={handleQuestionChange}
           handleAnswerChange={handleAnswerChange}
           handleEditSubmit={handleEditSubmit}

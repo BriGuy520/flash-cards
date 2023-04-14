@@ -10,10 +10,8 @@ type CardProps = {
   editCard: Array<number>,
   editQuestion: string,
   editAnswer: string,
-  showQuestion: boolean,
   handleDeleteCard: Function,
   handleEditCardClick: Function,
-  handleCardStateClick: Function,
   handleQuestionChange: React.ChangeEventHandler<HTMLInputElement>,
   handleAnswerChange: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleEditSubmit: React.FormEventHandler<HTMLFormElement>,
@@ -24,13 +22,26 @@ const Card = ({
   editCard, 
   editQuestion, 
   editAnswer, 
-  showQuestion,
   handleDeleteCard, 
-  handleEditCardClick, 
-  handleCardStateClick, 
+  handleEditCardClick,
   handleEditSubmit, 
   handleQuestionChange, 
   handleAnswerChange}: CardProps) => {
+
+    const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
+
+    React.useEffect(() => {
+  
+      if(editCard.length){
+        setShowQuestion(true);
+      }
+    }, [editCard])
+  
+    const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.preventDefault();
+  
+      setShowQuestion(!showQuestion);    
+    }
 
   if(editCard[0] === card.id){
     return (
@@ -50,7 +61,7 @@ const Card = ({
   } else {
 
     return (
-      <div className="card m-3" onClick={handleCardStateClick(card.id)}>
+      <div className="card m-3" onClick={handleCardStateClick}>
         <div className="flip-card-inner">
           <button className="edit-icon" onClick={() => handleEditCardClick(card.id)}><FontAwesomeIcon icon={faPenToSquare} /></button>
           <button className="delete-icon" onClick={() => handleDeleteCard(card.id)}><FontAwesomeIcon icon={faTrash} /></button>

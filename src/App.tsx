@@ -12,7 +12,7 @@ export type CardDetails = {
   answer: string, 
 }
 
-interface CollectionsInterface {
+export interface CollectionsInterface {
   [currentCollection: string]: Array<CardDetails>,  
 }
 
