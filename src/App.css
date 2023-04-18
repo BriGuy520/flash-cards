@@ -200,7 +200,7 @@ body {
 
 .boxes {
   display: flex;
-  justify-content: end;
+  margin: auto 0;
 }
 
 .boxes p {

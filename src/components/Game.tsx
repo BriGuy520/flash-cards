@@ -25,6 +25,11 @@ const Game = ({question, answer, cards}: CardProps) => {
     
     setShowQuestion(!showQuestion);    
   }
+
+  const handleCurrentCardClick = (cardIdx: number) => {
+
+    setCurrentCard(cardIdx);
+  }
   
  
   const nextCard = () => {
@@ -36,8 +41,6 @@ const Game = ({question, answer, cards}: CardProps) => {
     }
 
     setShowQuestion(true);
-
-    console.log(cardsPracticed);
   }
 
   const prevCard = () => {
@@ -52,11 +55,9 @@ const Game = ({question, answer, cards}: CardProps) => {
   }
 
 
-  const cardBoxes = cardsPracticed.map((card: any) => {
-    return <p>{card}</p>
+  const cardBoxes = cardsPracticed.map((card: any, idx: number) => {
+    return <p onClick={() => handleCurrentCardClick(idx)}>{card}</p>
   })
-
-  console.log(cardBoxes);
 
 
   return (
@@ -64,7 +65,7 @@ const Game = ({question, answer, cards}: CardProps) => {
       <div className="card-info">
         <h3>{currentCard + 1} / {cards.length}</h3>
         <div className="boxes">
-        {cardBoxes}
+          {cardBoxes}
         </div>
       </div>
       <div style={{'display': 'flex'}}>
