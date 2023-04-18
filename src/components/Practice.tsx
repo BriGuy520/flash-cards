@@ -56,7 +56,16 @@ const Practice = ({question, answer, cards}: CardProps) => {
 
 
   const cardBoxes = cardsPracticed.map((card: any, idx: number) => {
-    return <p onClick={() => handleCurrentCardClick(idx)}>{card}</p>
+
+    const cardClick = () => handleCurrentCardClick(idx);
+
+    if(idx === currentCard){
+
+      return <p onClick={cardClick} style={{"border": "4px solid #000"}}>{card}</p>
+    } else {
+
+      return <p onClick={cardClick}>{card}</p>
+    }
   })
 
 
