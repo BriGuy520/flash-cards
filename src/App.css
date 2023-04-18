@@ -186,3 +186,28 @@ body {
   color: rgb(36, 163, 36);
 }
 
+
+/* Practice */
+
+.card-info {
+  display: flex;
+  padding-bottom: 24px;
+}
+
+.card-info h3 {
+  padding-right: 16px;
+}
+
+.boxes {
+  display: flex;
+  justify-content: end;
+}
+
+.boxes p {
+  border: 2px solid #000;
+  margin: 0 10px;
+  width: 30px;
+  height: 30px;
+
+}
+

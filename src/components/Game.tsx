@@ -17,14 +17,16 @@ const Game = ({question, answer, cards}: CardProps) => {
 
   const [currentCard, setCurrentCard] = React.useState(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
+  const [cardsPracticed, setCardsPracticed] = React.useState<any>(new Array(cards.length).fill(null));
 
   
   const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
-
+    
     setShowQuestion(!showQuestion);    
   }
-
+  
+ 
   const nextCard = () => {
 
     if(currentCard === cards.length - 1){
@@ -34,6 +36,8 @@ const Game = ({question, answer, cards}: CardProps) => {
     }
 
     setShowQuestion(true);
+
+    console.log(cardsPracticed);
   }
 
   const prevCard = () => {
@@ -47,9 +51,22 @@ const Game = ({question, answer, cards}: CardProps) => {
     setShowQuestion(true);
   }
 
+
+  const cardBoxes = cardsPracticed.map((card: any) => {
+    return <p>{card}</p>
+  })
+
+  console.log(cardBoxes);
+
+
   return (
     <div className="game-container py-4">
-      <h3>{currentCard + 1} / {cards.length}</h3>
+      <div className="card-info">
+        <h3>{currentCard + 1} / {cards.length}</h3>
+        <div className="boxes">
+        {cardBoxes}
+        </div>
+      </div>
       <div style={{'display': 'flex'}}>
         <button className="chevron-left-btn" onClick={prevCard}><FontAwesomeIcon icon={faChevronLeft} /></button>
         <div className="game-card" onClick={handleCardStateClick}> 
