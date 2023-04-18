@@ -13,7 +13,7 @@ type CardProps = {
 }
 
 
-const Game = ({question, answer, cards}: CardProps) => {
+const Practice = ({question, answer, cards}: CardProps) => {
 
   const [currentCard, setCurrentCard] = React.useState(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
@@ -84,4 +84,4 @@ const Game = ({question, answer, cards}: CardProps) => {
 
 }
 
-export default Game;
+export default Practice;

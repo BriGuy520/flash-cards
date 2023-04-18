@@ -1,6 +1,6 @@
 import React from 'react';
 import CardList from './CardList';
-import Game from './Game';
+import Practice from './Practice';
 
 import { CardDetails } from '../App';
 
@@ -68,7 +68,7 @@ const Collection = ({
         High Score: {highScore}
       </div> 
       {playGame ?  
-        <Game
+        <Practice
           question={question}
           answer={answer}
           cards={cards}
