@@ -32,6 +32,8 @@ const Game = ({question, answer, cards}: CardProps) => {
     } else {
       setCurrentCard(currentCard + 1);
     }
+
+    setShowQuestion(true);
   }
 
   const prevCard = () => {
@@ -41,6 +43,8 @@ const Game = ({question, answer, cards}: CardProps) => {
     } else {
       setCurrentCard(currentCard - 1);
     }
+
+    setShowQuestion(true);
   }
 
   return (
