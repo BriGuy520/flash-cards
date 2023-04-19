@@ -54,7 +54,13 @@ const Practice = ({question, answer, cards}: CardProps) => {
     setShowQuestion(true);
   }
 
-  const addCheckMark = () => {
+  const addCheckMark = (cardId: number) => {
+
+    const newCardsPracticed = [...cardsPracticed];
+
+    newCardsPracticed[cardId] = faCheck;
+    
+    setCardsPracticed(newCardsPracticed);
 
   }
 
@@ -77,7 +83,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
       return <p onClick={cardClick} style={{"border": "4px solid #000"}}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
     } else {
 
-      return <p onClick={cardClick}>{card}</p>
+      return <p onClick={cardClick}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
     }
   })
 
@@ -97,7 +103,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
         </div>
         <button className="chevron-right-btn" onClick={nextCard}><FontAwesomeIcon icon={faChevronRight} /></button>
         <div className="game-functions">
-          <button className="check-button"><FontAwesomeIcon icon={faCheck} /></button>
+          <button onClick={() => addCheckMark(currentCard)} className="check-button"><FontAwesomeIcon icon={faCheck} /></button>
           <button onClick={() => addX(currentCard)} className="x-button"><FontAwesomeIcon icon={faX} /></button>
         </div>
       </div>
