@@ -178,11 +178,18 @@ body {
   margin: 10px;
 }
 
-.x-button {
+.check-button-box, .x-button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+
+.x-button, .x-button-box {
   color: rgb(184, 11, 11);
 }
 
-.check-button {
+.check-button, .check-button-box {
   color: rgb(36, 163, 36);
 }
 
@@ -203,11 +210,14 @@ body {
   margin: auto 0;
 }
 
+.boxes:hover {
+  cursor: pointer;  
+}
+
 .boxes p {
   border: 2px solid #000;
   margin: 0 10px;
   width: 30px;
   height: 30px;
-
 }
 

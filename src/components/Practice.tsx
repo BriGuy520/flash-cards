@@ -80,10 +80,10 @@ const Practice = ({question, answer, cards}: CardProps) => {
 
     if(idx === currentCard){
 
-      return <p onClick={cardClick} style={{"border": "4px solid #000"}}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
+      return <p className={card === faX ? "x-button-box" : "check-button-box"} onClick={cardClick} style={{"border": "4px solid #000"}}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
     } else {
 
-      return <p onClick={cardClick}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
+      return <p className={card === faX ? "x-button-box" : "check-button-box"} onClick={cardClick}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
     }
   })
 
