@@ -54,6 +54,19 @@ const Practice = ({question, answer, cards}: CardProps) => {
     setShowQuestion(true);
   }
 
+  const addCheckMark = () => {
+
+  }
+
+  const addX = (cardId: number) => {
+
+    const newCardsPracticed = [...cardsPracticed];
+
+    newCardsPracticed[cardId] = faX;
+    
+    setCardsPracticed(newCardsPracticed);
+  }
+
 
   const cardBoxes = cardsPracticed.map((card: any, idx: number) => {
 
@@ -61,7 +74,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
 
     if(idx === currentCard){
 
-      return <p onClick={cardClick} style={{"border": "4px solid #000"}}>{card}</p>
+      return <p onClick={cardClick} style={{"border": "4px solid #000"}}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
     } else {
 
       return <p onClick={cardClick}>{card}</p>
@@ -85,7 +98,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
         <button className="chevron-right-btn" onClick={nextCard}><FontAwesomeIcon icon={faChevronRight} /></button>
         <div className="game-functions">
           <button className="check-button"><FontAwesomeIcon icon={faCheck} /></button>
-          <button className="x-button"><FontAwesomeIcon icon={faX} /></button>
+          <button onClick={() => addX(currentCard)} className="x-button"><FontAwesomeIcon icon={faX} /></button>
         </div>
       </div>
     </div>
