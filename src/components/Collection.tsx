@@ -12,7 +12,7 @@ import { CardDetails } from '../App';
 //   }[]
 // }
 
-export interface CollectionProps {
+export interface CardListProps {
   selectedCollection: string,
   handleSubmit: React.FormEventHandler<HTMLFormElement>, 
   handleEditSubmit: React.FormEventHandler<HTMLFormElement>,
@@ -30,6 +30,13 @@ export interface CollectionProps {
   cards: Array<CardDetails>
 }
 
+interface PracticeProps {
+  practice: boolean,
+  handlePracticeMode: React.MouseEventHandler<HTMLButtonElement>,
+}
+
+type CollectionProps = CardListProps & PracticeProps;
+
 const Collection = ({
   selectedCollection, 
   handleSubmit,
@@ -40,34 +47,31 @@ const Collection = ({
   handleEditSubmit,
   handleDeleteClick,
   handleEditClick,
+  handlePracticeMode,
   editCard,
   editQuestion,
   editAnswer,
   answer, 
   question,
   cards,
+  practice
  }: CollectionProps) => {
 
   const [highScore, setHighScore] = React.useState<number>(0);
-  const [playGame, setPlayGame] = React.useState<boolean>(false);
 
-  const gameMode = (): void => {
-
-    setPlayGame(!playGame);
-  }
 
   return (
     <div className="border collection-content py-3">
       <div className="collection-header">
         <h1>{selectedCollection} Collection</h1>
         <div className="">
-          <button onClick={gameMode} className="btn btn-outline-primary">{playGame ? "End Practice" : "Practice"}</button>
+          <button onClick={handlePracticeMode} className="btn btn-outline-primary">{practice ? "End Practice" : "Practice"}</button>
         </div>
       </div>
       <div className="">
         High Score: {highScore}
       </div> 
-      {playGame ?  
+      {practice ?  
         <Practice
           question={question}
           answer={answer}

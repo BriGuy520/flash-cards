@@ -29,6 +29,8 @@ function App(): any {
   const [editQuestion, setEditQuestion] = React.useState<string>('');
   const [editAnswer, setEditAnswer] = React.useState<string>('');
 
+  const [practice, setPractice] = React.useState<boolean>(false);
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -124,6 +126,11 @@ function App(): any {
     }
   }
 
+  const practiceMode = (): void => {
+
+    setPractice(!practice);
+  }
+
   const handleClick = (value: string) => {
 
     setCurrentCollection(value);
@@ -155,12 +162,14 @@ function App(): any {
             handleEditSubmit={handleEditSubmit}
             handleDeleteClick={handleDeleteCard}
             handleEditClick={handleEditClick}
+            handlePracticeMode={practiceMode}
             editQuestion={editQuestion}
             editAnswer={editAnswer}
             editCard={editCard}
             question={question}
             answer={answer}
             cards={collections[currentCollection]}
+            practice={practice}
           />
         </div>
       </div>

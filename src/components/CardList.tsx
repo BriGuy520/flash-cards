@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card';
 import CreateCard from './CreateCard';
 
-import { CollectionProps } from './Collection';
+import { CardListProps } from './Collection';
 
 const CardList = ({
   selectedCollection, 
@@ -20,7 +20,7 @@ const CardList = ({
   answer, 
   question,
   cards,
- }: CollectionProps) => {
+ }: CardListProps) => {
 
   return (
     <div className="row">
