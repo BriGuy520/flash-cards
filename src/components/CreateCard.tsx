@@ -22,7 +22,7 @@ const CreateCard = ({
   children,
 }: CreateCardProps) => {
 
-  const [cardFront, setCardFront] = React.useState<boolean>(false);
+  const [cardFront, setCardFront] = React.useState<boolean>(true);
 
   return (
     <div className="d-flex flex-column m-3">    

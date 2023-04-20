@@ -3,7 +3,7 @@ export const data = {
         {
             "id": 1675634588252,
             "question": "what is react?",
-            "answer": "A frontend Framework. "
+            "answer": "A frontend Framework for building web applications"
         },
         {
             "id": 1675635150392,
