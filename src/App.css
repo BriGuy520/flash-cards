@@ -59,7 +59,7 @@ ul.collections-list {
   }
 
   .game-card{
-    width: 70%;
+    width: 90%;
     min-height: 300px;
   }
 }
@@ -233,7 +233,7 @@ body {
 @media (min-width: 600px){
 
   .card-functions {
-    width: 100%;
+    width: 90%;
   }
 
   .answer-functions {
