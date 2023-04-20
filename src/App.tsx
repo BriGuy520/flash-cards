@@ -20,7 +20,7 @@ function App(): any {
 
   const [collections, setCollections] = React.useState<CollectionsInterface>(data);
   const [collectionName, setCollectionName] = React.useState<string>(initialValue);
-  const [currentCollection, setCurrentCollection] = React.useState<string>("react");
+  const [currentCollection, setCurrentCollection] = React.useState<string>(Object.keys(data)[0]);
 
   const [question, setQuestion] = React.useState<string>('');
   const [answer, setAnswer] = React.useState<string>('');
