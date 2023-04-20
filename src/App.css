@@ -150,7 +150,7 @@ body {
 
 /* Game */
 
-.game-functions {
+.answer-functions {
   display: flex;
   flex-direction: column;
   justify-content: center;

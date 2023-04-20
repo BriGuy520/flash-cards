@@ -97,12 +97,14 @@ const Practice = ({question, answer, cards}: CardProps) => {
         </div>
       </div>
       <div style={{'display': 'flex'}}>
-        <button className="chevron-left-btn" onClick={prevCard}><FontAwesomeIcon icon={faChevronLeft} /></button>
-        <div className="game-card" onClick={handleCardStateClick}> 
-          <CardComponents card={cards[currentCard]} showQuestion={showQuestion} />
+        <div className="card-functions">
+          <button className="chevron-left-btn" onClick={prevCard}><FontAwesomeIcon icon={faChevronLeft} /></button>
+          <div className="game-card" onClick={handleCardStateClick}> 
+            <CardComponents card={cards[currentCard]} showQuestion={showQuestion} />
+          </div>
+          <button className="chevron-right-btn" onClick={nextCard}><FontAwesomeIcon icon={faChevronRight} /></button>
         </div>
-        <button className="chevron-right-btn" onClick={nextCard}><FontAwesomeIcon icon={faChevronRight} /></button>
-        <div className="game-functions">
+        <div className="answer-functions">
           <button onClick={() => addCheckMark(currentCard)} className="check-button"><FontAwesomeIcon icon={faCheck} /></button>
           <button onClick={() => addX(currentCard)} className="x-button"><FontAwesomeIcon icon={faX} /></button>
         </div>
