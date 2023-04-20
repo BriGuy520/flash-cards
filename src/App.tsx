@@ -135,7 +135,6 @@ function App(): any {
 
     setPractice(false);
     setCurrentCollection(value);
-
   }
   
 
