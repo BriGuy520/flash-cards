@@ -38,8 +38,8 @@ ul.collections-list {
 .game-card {
   box-shadow: 1px 5px 3px 0px #e0dbdb;
   border: 1px solid #ccc;
-  width: 70%;
-  min-height: 300px;
+  width: 100%;
+  min-height: 160px;
 
 }
 
@@ -56,6 +56,11 @@ ul.collections-list {
 @media(min-width: 600px){
   .card {
     width: 44%;
+  }
+
+  .game-card{
+    width: 70%;
+    min-height: 300px;
   }
 }
 
@@ -148,11 +153,18 @@ body {
   padding: 12% 20px;
 }
 
-/* Game */
+/* Practice */
+
+.practice-functions {
+  flex-direction: column;
+}
+
+.card-functions {
+  display: flex;
+}
 
 .answer-functions {
   display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -163,7 +175,7 @@ body {
 
 .chevron-left-btn, .chevron-right-btn {
   font-size: 24px;
-  margin: 20px;
+
 }
 
 .x-button, .check-button {
@@ -193,9 +205,6 @@ body {
   color: rgb(36, 163, 36);
 }
 
-
-/* Practice */
-
 .card-info {
   display: flex;
   padding-bottom: 24px;
@@ -219,5 +228,26 @@ body {
   margin: 0 10px;
   width: 30px;
   height: 30px;
+}
+
+@media (min-width: 600px){
+
+  .card-functions {
+    width: 100%;
+  }
+
+  .answer-functions {
+    flex-direction: column;
+  }
+
+  .practice-functions {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .chevron-left-btn, .chevron-right-btn {
+    margin: 20px;
+  }
+
 }
 

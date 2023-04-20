@@ -96,7 +96,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
           {cardBoxes}
         </div>
       </div>
-      <div style={{'display': 'flex'}}>
+      <div className="practice-functions" style={{'display': 'flex'}}>
         <div className="card-functions">
           <button className="chevron-left-btn" onClick={prevCard}><FontAwesomeIcon icon={faChevronLeft} /></button>
           <div className="game-card" onClick={handleCardStateClick}> 
