@@ -133,7 +133,9 @@ function App(): any {
 
   const handleClick = (value: string) => {
 
+    setPractice(false);
     setCurrentCollection(value);
+
   }
   
 
