@@ -8,12 +8,12 @@ export const data = {
         {
             "id": 1675635150392,
             "question": "who maintains react?",
-            "answer": "Meta."
+            "answer": "Meta maintains and develops React."
         },
         {
             "id": 1675635152025,
-            "question": "How does React work?",
-            "answer": "React allows developers to build reusable UI components and manage the state of their application in an efficient and organized way."
+            "question": "What does React do?",
+            "answer": "React allows developers to build reusable UI components and manage the state of their application in an efficient and organized way"
         },
         {
             "id": 1675635231494,
@@ -22,20 +22,20 @@ export const data = {
         },
         {
             "id": 1675635267237,
-            "question": "why does react update the view?",
-            "answer": "to respond to changes in state"
+            "question": "What is the virtual DOM?",
+            "answer": "The virtual DOM, or virtual Document Object Model, is a representation of the actual DOM in memory that is used by libraries such as React to efficiently update the user interface of web applications"
         }
     ],
     "angular": [
         {
             "id": 1675635308872,
             "question": "what is angular?",
-            "answer": "Angular is a JavaScript framework for building web applications."
+            "answer": "Angular is a JavaScript framework for building web applications"
         },
         {
             "id": 1675635323582,
             "question": "who maintains angular?",
-            "answer": "It is developed and maintained by Google "
+            "answer": "It is developed and maintained by Google"
         },
         {
             "id": 1675635366272,
