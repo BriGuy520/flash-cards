@@ -18,10 +18,20 @@ ul.collections-list {
   cursor: pointer;
 }
 
+.collections-list li .trashcan {
+  display: none;
+}
+
 .collections-list li.active {
+  display: flex;
   background: blue;
   color: #fff;
 }
+
+.collections-list li.active .trashcan {
+  display: inline-block;
+}
+
 
 .collections-list li input {
   padding: -2px;
