@@ -5,6 +5,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 interface CollectionsProps {
   createCollection: React.ChangeEventHandler<HTMLInputElement>,
   handleAddCollection: React.KeyboardEventHandler<HTMLInputElement>,
+  handleDeleteCollection: Function,
   handleClick: (value: string) => void,
   collectionName: string,
   currentCollection: string,
@@ -13,7 +14,7 @@ interface CollectionsProps {
   },
 }
 
-const Collections = ({createCollection, handleAddCollection, handleClick, collectionName, currentCollection, collections}: CollectionsProps) => {
+const Collections = ({createCollection, handleAddCollection, handleDeleteCollection, handleClick, collectionName, currentCollection, collections}: CollectionsProps) => {
   
   const collectionList: string[] = Object.keys(collections);
 
@@ -23,7 +24,7 @@ const Collections = ({createCollection, handleAddCollection, handleClick, collec
       <ul className="collections-list">
         {collectionList.map(collection => {
           const total: number = collections[collection].length;
-          return <li className={collection === currentCollection ? 'active' : ''} key={collection} onClick={() => handleClick(collection)}><span>{collection} ({total})</span> <span className="trashcan"><FontAwesomeIcon icon={faTrash} /></span></li>
+          return <li className={collection === currentCollection ? 'active' : ''} key={collection} onClick={() => handleClick(collection)}><span>{collection} ({total})</span> <span onClick={() => handleDeleteCollection(collection)} className="trashcan"><FontAwesomeIcon icon={faTrash} /></span></li>
         })}
         <li className="pl-0 ml-0"><input className="add-collection" onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/></li>
       </ul>

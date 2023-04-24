@@ -126,6 +126,19 @@ function App(): any {
     }
   }
 
+  const deleteCollection = (collectionSelected: string) => {
+    console.log(collections[collectionSelected]);
+    const newObj: CollectionsInterface = {};
+
+    for(const collectionKey in collections){
+      if(collectionKey !== collectionSelected){
+        newObj[collectionKey] = collections[collectionKey];
+      }
+    }
+
+    setCollections(newObj);
+  }
+
   const practiceMode = (): void => {
 
     setPractice(!practice);
@@ -147,6 +160,7 @@ function App(): any {
             createCollection={createCollection} 
             collectionName={collectionName} 
             handleAddCollection={handleKeyDown} 
+            handleDeleteCollection={deleteCollection}
             currentCollection={currentCollection}
             collections={collections}
             handleClick={handleClick}
