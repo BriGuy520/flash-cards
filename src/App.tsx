@@ -31,6 +31,8 @@ function App(): any {
 
   const [practice, setPractice] = React.useState<boolean>(false);
 
+  const currentCollectionRef = React.useRef('');
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,7 +79,6 @@ function App(): any {
     setEditCard([id, valueToChange]);
     setEditQuestion(collections[currentCollection][valueToChange].question);
     setEditAnswer(collections[currentCollection][valueToChange].answer);
-
   }
 
   const handleEditSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -127,9 +128,9 @@ function App(): any {
   }
 
   const deleteCollection = (collectionSelected: string) => {
-    console.log(collections[collectionSelected]);
-    const newObj: CollectionsInterface = {};
 
+    const newObj: CollectionsInterface = {};    
+    
     for(const collectionKey in collections){
       if(collectionKey !== collectionSelected){
         newObj[collectionKey] = collections[collectionKey];
@@ -137,6 +138,7 @@ function App(): any {
     }
 
     setCollections(newObj);
+    currentCollectionRef.current = Object.keys(newObj)[0];
   }
 
   const practiceMode = (): void => {
@@ -161,7 +163,7 @@ function App(): any {
             collectionName={collectionName} 
             handleAddCollection={handleKeyDown} 
             handleDeleteCollection={deleteCollection}
-            currentCollection={currentCollection}
+            currentCollection={currentCollectionRef.current ? currentCollectionRef.current : currentCollection}
             collections={collections}
             handleClick={handleClick}
           />
