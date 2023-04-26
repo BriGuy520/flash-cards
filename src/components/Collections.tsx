@@ -24,10 +24,10 @@ const Collections = ({createCollection, handleAddCollection, handleDeleteCollect
       <ul className="collections-list">
         {collectionList.map(collection => {
           const total: number = collections[collection].length;
-          console.log(currentCollection);
+
           return <li className={collection === currentCollection ? 'active' : ''} key={collection} onClick={() => handleClick(collection)}><span>{collection} ({total})</span> <span onClick={() => handleDeleteCollection(collection)} className="trashcan"><FontAwesomeIcon icon={faTrash} /></span></li>
         })}
-        
+
         <li className="pl-0 ml-0"><input className="add-collection" onChange={createCollection} onKeyDown={handleAddCollection} value={collectionName}/></li>
       </ul>
       

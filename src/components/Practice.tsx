@@ -52,6 +52,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
     }
 
     setShowQuestion(true);
+
   }
 
   const addCheckMark = (cardId: number) => {
@@ -62,6 +63,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
     
     setCardsPracticed(newCardsPracticed);
 
+    nextCard();
   }
 
   const addX = (cardId: number) => {
@@ -71,6 +73,8 @@ const Practice = ({question, answer, cards}: CardProps) => {
     newCardsPracticed[cardId] = faX;
     
     setCardsPracticed(newCardsPracticed);
+
+    nextCard();
   }
 
 

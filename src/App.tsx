@@ -31,8 +31,6 @@ function App(): any {
 
   const [practice, setPractice] = React.useState<boolean>(false);
 
-  const currentCollectionRef = React.useRef('');
-
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -122,7 +120,6 @@ function App(): any {
       // Update state when enter key is pressed
 
       setCollections({...collections, [collectionName]: []});
-      currentCollectionRef.current = '';
       setCurrentCollection(collectionName);
       setCollectionName(initialValue);
     }
@@ -139,7 +136,7 @@ function App(): any {
     }
 
     setCollections(newObj);
-    currentCollectionRef.current = Object.keys(newObj)[0];
+    setCurrentCollection(Object.keys(newObj)[0]);
   }
 
   const practiceMode = (): void => {
@@ -164,7 +161,7 @@ function App(): any {
             collectionName={collectionName} 
             handleAddCollection={handleKeyDown} 
             handleDeleteCollection={deleteCollection}
-            currentCollection={currentCollectionRef.current ? currentCollectionRef.current : currentCollection}
+            currentCollection={currentCollection}
             collections={collections}
             handleClick={handleClick}
           />
