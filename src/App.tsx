@@ -122,6 +122,7 @@ function App(): any {
       // Update state when enter key is pressed
 
       setCollections({...collections, [collectionName]: []});
+      currentCollectionRef.current = '';
       setCurrentCollection(collectionName);
       setCollectionName(initialValue);
     }
