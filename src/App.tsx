@@ -128,6 +128,7 @@ function App(): any {
   const deleteCollection = (collectionSelected: string) => {
 
     const newObj: CollectionsInterface = {};    
+    const newCollectionInput: any = document.getElementsByClassName('add-collection');
     
     for(const collectionKey in collections){
       if(collectionKey !== collectionSelected){
@@ -135,8 +136,9 @@ function App(): any {
       }
     }
 
-    setCollections(newObj);
+    setCollections({...newObj});
     setCurrentCollection(Object.keys(newObj)[0]);
+    newCollectionInput[0].focus();
   }
 
   const practiceMode = (): void => {
