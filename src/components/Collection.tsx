@@ -59,7 +59,6 @@ const Collection = ({
 
   const [highScore, setHighScore] = React.useState<number>(0);
 
-  console.log("selectedCollection: " + selectedCollection);
   return (
     <div className="border collection-content py-3">
       <div className="collection-header">

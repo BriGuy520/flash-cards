@@ -31,9 +31,6 @@ function App(): any {
 
   const [practice, setPractice] = React.useState<boolean>(false);
 
-  const collectionNameRef: any = React.useRef(currentCollection);
-
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -125,7 +122,6 @@ function App(): any {
       setCurrentCollection(collectionName);
       setCollectionName(initialValue);
 
-      collectionNameRef.current = collectionName;
     }
   }
 
@@ -145,8 +141,6 @@ function App(): any {
 
   const deleteCollection = (collectionSelected: string) => {
 
-    console.log("Delete Collection fired");
-
     const newObj: CollectionsInterface = {};    
     const newCollectionInput: any = document.getElementsByClassName('add-collection')[0];
     
@@ -160,8 +154,6 @@ function App(): any {
 
     newCollectionInput.focus();
     newCollectionInput.setSelectionRange(0, newCollectionInput.value.length);
-
-    collectionNameRef.current = '';
   }
 
   const practiceMode = (): void => {
