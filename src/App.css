@@ -1,5 +1,6 @@
 .collection-content {
   padding: 40px 2%;
+  min-height: 400px;
 }
 
 .collection-header {

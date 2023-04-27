@@ -41,18 +41,24 @@ const CardList = ({
             />
           );
         })}
+      {selectedCollection !== "Start a New " ?
+      
+        <div className="card m-3">   
+          <CreateCard 
+            handleSubmit={handleSubmit} 
+            handleQuestion={handleQuestion} 
+            handleAnswer={handleAnswer} 
+            answer={answer} 
+            question={question} 
+            action={"Add Card"}
+          >+
+          </CreateCard>
+        </div>
 
-      <div className="card m-3">   
-        <CreateCard 
-          handleSubmit={handleSubmit} 
-          handleQuestion={handleQuestion} 
-          handleAnswer={handleAnswer} 
-          answer={answer} 
-          question={question} 
-          action={"Add Card"}
-        >+
-        </CreateCard>
-      </div>
+      : 
+      
+      ""
+      }
     </div>
   )
 
