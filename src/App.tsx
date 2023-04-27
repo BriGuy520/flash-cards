@@ -138,7 +138,11 @@ function App(): any {
 
     setCollections({...newObj});
     setCurrentCollection(Object.keys(newObj)[0]);
+
+    console.log(newCollectionInput[0]);
+
     newCollectionInput[0].focus();
+    newCollectionInput[0].setSelectionRange(0, newCollectionInput[0].value.length);
   }
 
   const practiceMode = (): void => {
