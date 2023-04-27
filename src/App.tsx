@@ -133,14 +133,13 @@ function App(): any {
     e.preventDefault();
     const target = e.target as HTMLElement;
 
-    console.log(target);
+    if(!target.matches('path')){
 
-    setPractice(false);
-    setCurrentCollection(value);
-
-
-    collectionNameRef.current = value;
-    
+      setPractice(false);
+      setCurrentCollection(value);
+    } else {
+      setCurrentCollection("Start a New ");
+    }    
   }
 
 
@@ -158,7 +157,6 @@ function App(): any {
     }
 
     setCollections(newObj);
-    setCurrentCollection('');
 
     newCollectionInput.focus();
     newCollectionInput.setSelectionRange(0, newCollectionInput.value.length);
@@ -188,7 +186,7 @@ function App(): any {
         </div>
         <div className="collection-view col-lg-10 px-0"> 
           <Collection 
-            selectedCollection={currentCollection !== '' ? currentCollection : "Start a New "} 
+            selectedCollection={currentCollection} 
             handleSubmit={handleSubmit} 
             handleQuestion={handleQuestion}
             handleAnswer={handleAnswer}
