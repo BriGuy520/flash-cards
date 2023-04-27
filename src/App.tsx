@@ -31,6 +31,8 @@ function App(): any {
 
   const [practice, setPractice] = React.useState<boolean>(false);
 
+  const collectionNameRef: any = React.useRef(currentCollection);
+
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -122,13 +124,32 @@ function App(): any {
       setCollections({...collections, [collectionName]: []});
       setCurrentCollection(collectionName);
       setCollectionName(initialValue);
+
+      collectionNameRef.current = collectionName;
     }
   }
 
+  const handleCollectionSelect = (e: React.MouseEvent<HTMLLIElement>, value: string) => {
+    e.preventDefault();
+    const target = e.target as HTMLElement;
+
+    console.log(target);
+
+    setPractice(false);
+    setCurrentCollection(value);
+
+
+    collectionNameRef.current = value;
+    
+  }
+
+
   const deleteCollection = (collectionSelected: string) => {
 
+    console.log("Delete Collection fired");
+
     const newObj: CollectionsInterface = {};    
-    const newCollectionInput: any = document.getElementsByClassName('add-collection');
+    const newCollectionInput: any = document.getElementsByClassName('add-collection')[0];
     
     for(const collectionKey in collections){
       if(collectionKey !== collectionSelected){
@@ -136,27 +157,20 @@ function App(): any {
       }
     }
 
-    setCollections({...newObj});
-    setCurrentCollection(Object.keys(newObj)[0]);
+    setCollections(newObj);
+    setCurrentCollection('');
 
-    console.log(newCollectionInput[0]);
+    newCollectionInput.focus();
+    newCollectionInput.setSelectionRange(0, newCollectionInput.value.length);
 
-    newCollectionInput[0].focus();
-    newCollectionInput[0].setSelectionRange(0, newCollectionInput[0].value.length);
+    collectionNameRef.current = '';
   }
 
   const practiceMode = (): void => {
 
     setPractice(!practice);
   }
-
-  const handleClick = (value: string) => {
-
-    setPractice(false);
-    setCurrentCollection(value);
-  }
   
-
   return (
     <div className="App container-fluid">
       <h1>Flash Cards</h1>
@@ -169,12 +183,12 @@ function App(): any {
             handleDeleteCollection={deleteCollection}
             currentCollection={currentCollection}
             collections={collections}
-            handleClick={handleClick}
+            handleCollectionSelect={handleCollectionSelect}
           />
         </div>
         <div className="collection-view col-lg-10 px-0"> 
           <Collection 
-            selectedCollection={currentCollection} 
+            selectedCollection={currentCollection !== '' ? currentCollection : "Start a New "} 
             handleSubmit={handleSubmit} 
             handleQuestion={handleQuestion}
             handleAnswer={handleAnswer}
