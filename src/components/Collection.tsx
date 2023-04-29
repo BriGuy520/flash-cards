@@ -59,12 +59,14 @@ const Collection = ({
 
   const [highScore, setHighScore] = React.useState<number>(0);
 
+  const disableCard: boolean = cards ? false : true;
+
   return (
     <div className="border collection-content py-3">
       <div className="collection-header">
         <h1>{selectedCollection} Collection</h1>
         <div className="">
-          <button onClick={handlePracticeMode} className="btn btn-outline-primary">{practice ? "End Practice" : "Practice"}</button>
+          <button disabled={disableCard} onClick={handlePracticeMode} className="btn btn-outline-primary">{practice ? "End Practice" : "Practice"}</button>
         </div>
       </div>
       <div className="">
