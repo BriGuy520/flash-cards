@@ -30,12 +30,9 @@ const Card = ({
 
     const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
-    console.log(showQuestion);
-
     React.useEffect(() => {
   
       if(editCard.length){
-
     
         setShowQuestion(true);
       }
