@@ -30,9 +30,13 @@ const Card = ({
 
     const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
 
+    console.log(showQuestion);
+
     React.useEffect(() => {
   
       if(editCard.length){
+
+        console.log("EDIT CARD USE EFFECT");
         setShowQuestion(true);
       }
     }, [editCard])
@@ -44,13 +48,14 @@ const Card = ({
     }
 
   if(editCard[0] === card.id){
+
     return (
       <div className="col-lg-3 card m-3"> 
         <CreateCard 
           question={editQuestion} 
           answer={editAnswer} 
           action={"Edit Card"}
-          showQuestion={showQuestion}
+          showQuestion={false}
           handleAnswer={handleAnswerChange} 
           handleQuestion={handleQuestionChange} 
           handleSubmit={handleEditSubmit}

@@ -22,6 +22,8 @@ const CardList = ({
   cards,
  }: CardListProps) => {
 
+  console.log("Edit Card: " + editCard);
+
   return (
     <div className="row">
     
