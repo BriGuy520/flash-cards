@@ -22,7 +22,25 @@ const CardList = ({
   cards,
  }: CardListProps) => {
 
-  console.log("Edit Card: " + editCard);
+  const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
+
+  console.log(showQuestion);
+
+  React.useEffect(() => {
+
+    if(editCard.length){
+
+      console.log("EDIT CARD USE EFFECT");
+      setShowQuestion(true);
+    }
+  }, [editCard])
+
+  const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+
+    setShowQuestion(!showQuestion);    
+  }
+
 
   return (
     <div className="row">
@@ -37,6 +55,8 @@ const CardList = ({
               handleEditCardClick={handleEditClick}
               editQuestion={editQuestion}
               editAnswer={editAnswer}
+              showQuestion={showQuestion}
+              handleCardStateClick={handleCardStateClick}
               handleEditSubmit={handleEditSubmit}
               handleQuestionChange={handleQuestionChange}  
               handleAnswerChange={handleAnswerChange} 
@@ -50,6 +70,7 @@ const CardList = ({
             handleSubmit={handleSubmit} 
             handleQuestion={handleQuestion} 
             handleAnswer={handleAnswer} 
+            showQuestion={true}
             answer={answer} 
             question={question} 
             action={"Add Card"}
