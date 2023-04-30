@@ -10,10 +10,8 @@ type CardProps = {
   editCard: Array<number>,
   editQuestion: string,
   editAnswer: string,
-  showQuestion: boolean,
   handleDeleteCard: Function,
   handleEditCardClick: Function,
-  handleCardStateClick: React.MouseEventHandler<HTMLDivElement>,
   handleQuestionChange: React.ChangeEventHandler<HTMLInputElement>,
   handleAnswerChange: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleEditSubmit: React.FormEventHandler<HTMLFormElement>,
@@ -24,14 +22,30 @@ const Card = ({
   editCard, 
   editQuestion, 
   editAnswer, 
-  showQuestion,
-  handleCardStateClick,
   handleDeleteCard, 
   handleEditCardClick,
   handleEditSubmit, 
   handleQuestionChange, 
   handleAnswerChange}: CardProps) => {
 
+    const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
+
+    console.log(showQuestion);
+
+    React.useEffect(() => {
+  
+      if(editCard.length){
+
+    
+        setShowQuestion(true);
+      }
+    }, [editCard])
+  
+    const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
+      e.preventDefault();
+  
+      setShowQuestion(!showQuestion);    
+    }
 
   if(editCard[0] === card.id){
 
@@ -41,7 +55,7 @@ const Card = ({
           question={editQuestion} 
           answer={editAnswer} 
           action={"Edit Card"}
-          showQuestion={false}
+          showQuestion={showQuestion}
           handleAnswer={handleAnswerChange} 
           handleQuestion={handleQuestionChange} 
           handleSubmit={handleEditSubmit}

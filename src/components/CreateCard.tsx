@@ -24,9 +24,6 @@ const CreateCard = ({
 
   const [cardFront, setCardFront] = React.useState<boolean>(showQuestion ? true : false);
 
-
-  console.log("Show Question in Create Card: " + showQuestion);
-
   return (
     <div className="d-flex flex-column m-3">    
      <div style={{display: cardFront ? 'none' : 'block'}} className="form-side">
