@@ -5,6 +5,7 @@ type CreateCardProps = {
   handleAnswer: React.ChangeEventHandler<HTMLTextAreaElement>,
   handleQuestion?: React.ChangeEventHandler<HTMLInputElement>,
   showQuestion?: boolean,
+  editCard: Array<number>,
   action: string, 
   question: string,
   answer: string,
@@ -16,13 +17,16 @@ const CreateCard = ({
   handleQuestion, 
   handleAnswer, 
   showQuestion,
+  editCard,
   action,
   question, 
   answer, 
   children,
 }: CreateCardProps) => {
 
-  const [cardFront, setCardFront] = React.useState<boolean>(showQuestion ? true : false);
+  console.log(editCard);
+
+  const [cardFront, setCardFront] = React.useState<boolean>(editCard.length > 0 ? false : true);
 
   return (
     <div className="d-flex flex-column m-3">    

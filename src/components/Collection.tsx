@@ -57,8 +57,6 @@ const Collection = ({
   practice
  }: CollectionProps) => {
 
-  const [highScore, setHighScore] = React.useState<number>(0);
-
   const disableCard: boolean = cards ? false : true;
 
   return (
@@ -69,9 +67,6 @@ const Collection = ({
           <button disabled={disableCard} onClick={handlePracticeMode} className="btn btn-outline-primary">{practice ? "End Practice" : "Practice"}</button>
         </div>
       </div>
-      <div className="">
-        High Score: {highScore}
-      </div> 
       {practice ?  
         <Practice
           question={question}

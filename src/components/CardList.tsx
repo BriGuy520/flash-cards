@@ -22,6 +22,8 @@ const CardList = ({
   cards,
  }: CardListProps) => {
 
+  console.log("Edit Card: " + editCard);
+
   return (
     <div className="row">
     
@@ -50,6 +52,7 @@ const CardList = ({
             handleAnswer={handleAnswer} 
             answer={answer} 
             question={question} 
+            editCard={editCard}
             action={"Add Card"}
           >+
           </CreateCard>

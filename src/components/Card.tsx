@@ -52,6 +52,7 @@ const Card = ({
           question={editQuestion} 
           answer={editAnswer} 
           action={"Edit Card"}
+          editCard={editCard}
           showQuestion={showQuestion}
           handleAnswer={handleAnswerChange} 
           handleQuestion={handleQuestionChange} 
