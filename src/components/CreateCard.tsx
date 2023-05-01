@@ -24,8 +24,6 @@ const CreateCard = ({
   children,
 }: CreateCardProps) => {
 
-  console.log(editCard);
-
   const [cardFront, setCardFront] = React.useState<boolean>(editCard.length > 0 ? false : true);
 
   return (
