@@ -91,6 +91,11 @@ const Practice = ({question, answer, cards}: CardProps) => {
     }
   })
 
+  const clearPracticed = () =>{
+
+    setCardsPracticed(new Array(cards.length).fill(null));
+  }
+
 
   return (
     <div className="game-container py-4">
@@ -98,6 +103,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
         <h3>{currentCard + 1} / {cards.length}</h3>
         <div className="boxes">
           {cardBoxes}
+          <button className="btn btn-danger" onClick={clearPracticed}>Clear</button>
         </div>
       </div>
       <div className="practice-functions" style={{'display': 'flex'}}>
