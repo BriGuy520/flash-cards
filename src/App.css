@@ -23,11 +23,15 @@ ul.collections-list {
   cursor: pointer;
 }
 
+ul.collections-list li:hover {
+  color:rgb(153, 67, 238);
+}
+
 .collections-list li .trashcan {
   display: none;
 }
 
-.collections-list li.active {
+ul.collections-list li.active {
   display: flex;
   justify-content: space-between;
   background: rgb(3, 137, 255);
@@ -119,6 +123,14 @@ textarea.form-control {
 
 body {
   font-family: 'Permanent Marker';
+}
+
+input.btn.btn-primary {
+  background-color: rgb(3, 137, 255);
+}
+
+input.btn.btn-primary:hover {
+  background-color: rgb(38, 153, 254);
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
