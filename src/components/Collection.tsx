@@ -57,7 +57,7 @@ const Collection = ({
   practice
  }: CollectionProps) => {
 
-  const disableCard: boolean = cards ? false : true;
+  const disableCard: boolean = cards && cards.length >= 1 ? false : true;
 
   return (
     <div className="border collection-content py-3">
