@@ -26,7 +26,7 @@ ul.collections-list {
 .collections-list li.active {
   display: flex;
   justify-content: space-between;
-  background: blue;
+  background: rgb(3, 137, 255);
   color: #fff;
 }
 
