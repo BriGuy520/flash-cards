@@ -8,6 +8,10 @@
   justify-content: space-between;
 }
 
+.collection-header h1 {
+  color: rgb(43, 223, 223);
+}
+
 ul.collections-list {
   padding-left: 0.5rem;
 }
@@ -34,6 +38,9 @@ ul.collections-list {
   display: inline-block;
 }
 
+.collections-list li.active .trashcan:hover {
+  color: red;
+}
 
 .collections-list li input {
   padding: -2px;
@@ -52,7 +59,6 @@ ul.collections-list {
   border: 1px solid #ccc;
   width: 100%;
   min-height: 160px;
-
 }
 
 .card {
@@ -104,7 +110,7 @@ ul.collections-list {
 }
 
 .edit-icon:hover {
-  color: rgb(43, 223, 223);
+  color: rgb(153, 67, 238);
 }
 
 textarea.form-control {
@@ -167,6 +173,16 @@ body {
 
 /* Practice */
 
+button.btn.btn-outline-primary {
+  border-color: rgb(3, 137, 255);
+  color: rgb(3, 137, 255);
+}
+
+button.btn.btn-outline-primary:hover {
+  background-color: rgb(3, 137, 255);
+  color: #fff;
+}
+
 .practice-functions {
   flex-direction: column;
 }
@@ -207,14 +223,13 @@ body {
   justify-content: center;
   align-items: center;
 }
-  
 
 .x-button, .x-button-box {
-  color: rgb(184, 11, 11);
+  color: red;
 }
 
 .check-button, .check-button-box {
-  color: rgb(36, 163, 36);
+  color: rgb(43, 223, 223);
 }
 
 .card-info {
