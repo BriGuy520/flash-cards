@@ -50,6 +50,11 @@ ul.collections-list li.active {
   padding: -2px;
 }
 
+.collections-list li input::selection {
+  background-color: rgb(255, 255, 91);
+  color: rgb(3, 137, 255);
+}
+
 .add-collection {
   width: 100%;
 }
