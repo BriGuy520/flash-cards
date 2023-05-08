@@ -151,6 +151,7 @@ function App(): any {
     }
 
     setCollections(newObj);
+    setPractice(false);
 
     newCollectionInput.focus();
     newCollectionInput.setSelectionRange(0, newCollectionInput.value.length);
