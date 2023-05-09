@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import CardComponents from './CardComponents';
 import { faCheck, faX, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,11 +9,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 type CardProps = {
   answer: string, 
   question: string,
+  shuffleCards: MouseEventHandler<HTMLButtonElement>,
   cards: Array<CardDetails>
 }
 
 
-const Practice = ({question, answer, cards}: CardProps) => {
+const Practice = ({question, answer, cards, shuffleCards}: CardProps) => {
 
   const [currentCard, setCurrentCard] = React.useState(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
@@ -91,7 +92,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
     }
   })
 
-  const clearPracticed = () =>{
+  const clearPracticed = () => {
 
     setCardsPracticed(new Array(cards.length).fill(null));
   }
@@ -104,7 +105,7 @@ const Practice = ({question, answer, cards}: CardProps) => {
         <div className="boxes">
           {cardBoxes}
           <button className="btn btn-outline-danger" style={{'marginLeft': '10px'}} onClick={clearPracticed}>Clear</button>
-          <button className="btn btn-outline-purple" style={{'marginLeft': '10px'}} onClick={clearPracticed}>Shuffle</button>
+          <button className="btn btn-outline-purple" style={{'marginLeft': '10px'}} onClick={shuffleCards}>Shuffle</button>
         </div>
       </div>
       <div className="practice-functions" style={{'display': 'flex'}}>

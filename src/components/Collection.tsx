@@ -45,9 +45,9 @@ const Collection = ({
   handleQuestionChange, 
   handleAnswerChange,
   handleEditSubmit,
+  handlePracticeMode,
   handleDeleteClick,
   handleEditClick,
-  handlePracticeMode,
   editCard,
   editQuestion,
   editAnswer,
@@ -57,7 +57,15 @@ const Collection = ({
   practice
  }: CollectionProps) => {
 
+  const [cardOrder, setCardOrder] = React.useState(cards);
+
   const disableCard: boolean = cards && cards.length >= 1 ? false : true;
+
+  const shuffleCards = () => {
+
+    console.log("cards shuffled");
+  }
+
 
   return (
     <div className="border collection-content py-3">
@@ -71,7 +79,8 @@ const Collection = ({
         <Practice
           question={question}
           answer={answer}
-          cards={cards}
+          shuffleCards={shuffleCards}
+          cards={cardOrder}
         />
       :
         <CardList
@@ -89,7 +98,7 @@ const Collection = ({
           editCard={editCard}
           question={question}
           answer={answer}
-          cards={cards}
+          cards={cardOrder}
         />
       }
     </div>
