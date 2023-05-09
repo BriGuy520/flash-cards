@@ -199,6 +199,16 @@ button.btn.btn-outline-primary {
   color: rgb(3, 137, 255);
 }
 
+button.btn.btn-outline-purple {
+  border: rgb(153, 67, 238) solid 1px;
+  color:rgb(153, 67, 238);
+}
+
+button.btn.btn-outline-purple:hover {
+  background:rgb(153, 67, 238);
+  color: #fff;
+}
+
 button.btn.btn-outline-primary:hover {
   background-color: rgb(3, 137, 255);
   color: #fff;
