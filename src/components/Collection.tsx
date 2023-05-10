@@ -64,29 +64,15 @@ const Collection = ({
 
   const shuffleCards = () => {
 
-    let newCardOrder: Array<CardDetails>|null = new Array(cards.length).fill(null);
-    let currentIdx: number = 0;
-    let prevIndexes: Array<number> = [];
+    let newCardOrder: Array<CardDetails>|null = [];
 
-    while(currentIdx < cardOrder.length){
+    while(cardOrder.length > 0){
 
-      let randomIdx = Math.floor(Math.random() * (cardOrder.length - 1));
+      let randomIdx: number = Math.floor(Math.random() * (cardOrder.length - 1));
+      let randomValue = cardOrder.splice(randomIdx, 1)[0];
 
-      while(prevIndexes.includes(randomIdx)){
-        randomIdx++;
-
-        if(randomIdx > cards.length - 1){
-          randomIdx = 0;
-        }
-      }
-
-      if(!newCardOrder[randomIdx]){
-
-        newCardOrder[randomIdx] = cardOrder[currentIdx];
-
-        prevIndexes.push(randomIdx);
-        currentIdx++;
-      }
+      newCardOrder.push(randomValue);
+     
       
     }
 

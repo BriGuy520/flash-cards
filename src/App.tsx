@@ -31,6 +31,8 @@ function App(): any {
 
   const [practice, setPractice] = React.useState<boolean>(false);
 
+  console.log(collections[currentCollection]);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
