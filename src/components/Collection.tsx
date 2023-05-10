@@ -59,11 +59,39 @@ const Collection = ({
 
   const [cardOrder, setCardOrder] = React.useState(cards);
 
+
   const disableCard: boolean = cards && cards.length >= 1 ? false : true;
 
   const shuffleCards = () => {
 
-    console.log("cards shuffled");
+    let newCardOrder: Array<CardDetails>|null = new Array(cards.length).fill(null);
+    let currentIdx: number = 0;
+    let prevIndexes: Array<number> = [];
+
+    while(currentIdx < cardOrder.length){
+
+      let randomIdx = Math.floor(Math.random() * (cardOrder.length - 1));
+
+      while(prevIndexes.includes(randomIdx)){
+        randomIdx++;
+
+        if(randomIdx > cards.length - 1){
+          randomIdx = 0;
+        }
+      }
+
+      if(!newCardOrder[randomIdx]){
+
+        newCardOrder[randomIdx] = cardOrder[currentIdx];
+
+        prevIndexes.push(randomIdx);
+        currentIdx++;
+      }
+      
+    }
+
+    setCardOrder(newCardOrder);
+    
   }
 
 
