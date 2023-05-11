@@ -104,8 +104,8 @@ const Practice = ({question, answer, cards, shuffleCards}: CardProps) => {
         <h3>{currentCard + 1} / {cards.length}</h3>
         <div className="boxes">
           {cardBoxes}
-          <button className="btn btn-outline-danger" style={{'marginLeft': '10px'}} onClick={clearPracticed}>Clear</button>
           <button className="btn btn-outline-purple" style={{'marginLeft': '10px'}} onClick={shuffleCards}>Shuffle</button>
+          <button className="btn btn-outline-danger" style={{'marginLeft': '10px'}} onClick={clearPracticed}>Clear</button>
         </div>
       </div>
       <div className="practice-functions" style={{'display': 'flex'}}>

@@ -107,8 +107,6 @@ function App(): any {
       let randomValue = collections[currentCollection].splice(randomIdx, 1)[0];
 
       newCardOrder.push(randomValue);
-     
-      
     }
 
     setCollections({...collections, [currentCollection]: newCardOrder});
