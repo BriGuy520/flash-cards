@@ -32,6 +32,7 @@ export interface CardListProps {
 
 interface PracticeProps {
   practice: boolean,
+  shuffleCards: React.MouseEventHandler<HTMLButtonElement>,
   handlePracticeMode: React.MouseEventHandler<HTMLButtonElement>,
 }
 
@@ -46,6 +47,7 @@ const Collection = ({
   handleAnswerChange,
   handleEditSubmit,
   handlePracticeMode,
+  shuffleCards,
   handleDeleteClick,
   handleEditClick,
   editCard,
@@ -57,29 +59,7 @@ const Collection = ({
   practice
  }: CollectionProps) => {
 
-  const [cardOrder, setCardOrder] = React.useState(cards);
-
-
   const disableCard: boolean = cards && cards.length >= 1 ? false : true;
-
-  const shuffleCards = () => {
-
-    let newCardOrder: Array<CardDetails>|null = [];
-
-    while(cardOrder.length > 0){
-
-      let randomIdx: number = Math.floor(Math.random() * (cardOrder.length - 1));
-      let randomValue = cardOrder.splice(randomIdx, 1)[0];
-
-      newCardOrder.push(randomValue);
-     
-      
-    }
-
-    setCardOrder(newCardOrder);
-    
-  }
-
 
   return (
     <div className="border collection-content py-3">
@@ -94,7 +74,7 @@ const Collection = ({
           question={question}
           answer={answer}
           shuffleCards={shuffleCards}
-          cards={cardOrder}
+          cards={cards}
         />
       :
         <CardList
@@ -112,7 +92,7 @@ const Collection = ({
           editCard={editCard}
           question={question}
           answer={answer}
-          cards={cardOrder}
+          cards={cards}
         />
       }
     </div>

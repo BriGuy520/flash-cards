@@ -31,7 +31,6 @@ function App(): any {
 
   const [practice, setPractice] = React.useState<boolean>(false);
 
-  console.log(collections[currentCollection]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -98,6 +97,24 @@ function App(): any {
     setEditCard([])
   }
 
+  const shuffleCards = () => {
+
+    let newCardOrder: Array<CardDetails>|null = [];
+
+    while(collections[currentCollection].length > 0){
+
+      let randomIdx: number = Math.floor(Math.random() * (collections[currentCollection].length - 1));
+      let randomValue = collections[currentCollection].splice(randomIdx, 1)[0];
+
+      newCardOrder.push(randomValue);
+     
+      
+    }
+
+    setCollections({...collections, [currentCollection]: newCardOrder});
+    
+  }
+
   const handleQuestionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
 
@@ -139,7 +156,6 @@ function App(): any {
       setCurrentCollection("Start a New ");
     }    
   }
-
 
   const deleteCollection = (collectionSelected: string) => {
 
@@ -191,6 +207,7 @@ function App(): any {
             handleDeleteClick={handleDeleteCard}
             handleEditClick={handleEditClick}
             handlePracticeMode={practiceMode}
+            shuffleCards={shuffleCards}
             editQuestion={editQuestion}
             editAnswer={editAnswer}
             editCard={editCard}
