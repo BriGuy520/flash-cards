@@ -16,8 +16,6 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
 
   const [currentCard, setCurrentCard] = React.useState(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
-  const [cardsPracticed, setCardsPracticed] = React.useState<any>(new Array(cards.length).fill(null));
-
   
   const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -54,45 +52,52 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
 
   }
 
-  const addCheckMark = (cardId: number) => {
+  const addCheckMark = (cardIdx: number) => {
 
-    const newCardsPracticed = [...cardsPracticed];
 
-    newCardsPracticed[cardId] = faCheck;
-    
-    setCardsPracticed(newCardsPracticed);
+    console.log(cards, cardIdx);
 
-    nextCard();
-  }
 
-  const addX = (cardId: number) => {
-
-    const newCardsPracticed = [...cardsPracticed];
-
-    newCardsPracticed[cardId] = faX;
-    
-    setCardsPracticed(newCardsPracticed);
 
     nextCard();
+
+    return cards.map(card => {
+      if(card.id === cardIdx){
+        card.practiced = faCheck;
+      }
+    });
+  }
+
+  const addX = (cardIdx: number) => {
+
+    nextCard();
+
+    return cards.map(card => {
+      if(card.id === cardIdx){
+        card.practiced = faX;
+      }
+    });
   }
 
 
-  const cardBoxes = cardsPracticed.map((card: any, idx: number) => {
+  const cardBoxes = cards.map((card: any, idx: number) => {
 
     const cardClick = () => handleCurrentCardClick(idx);
 
     if(idx === currentCard){
 
-      return <p key={idx} className={card === faX ? "x-button-box" : "check-button-box"} onClick={cardClick} style={{"border": "4px solid #000"}}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
+      return <p key={idx} className={card.practiced === faX ? "x-button-box" : "check-button-box"} onClick={cardClick} style={{"border": "4px solid #000"}}>{card.practiced ? <FontAwesomeIcon icon={card.practiced} /> : ''}</p>
     } else {
 
-      return <p key={idx} className={card === faX ? "x-button-box" : "check-button-box"} onClick={cardClick}>{card ? <FontAwesomeIcon icon={card} /> : ''}</p>
+      return <p key={idx} className={card.practiced === faX ? "x-button-box" : "check-button-box"} onClick={cardClick}>{card.practiced ? <FontAwesomeIcon icon={card.practiced} /> : ''}</p>
     }
   })
 
   const clearPracticed = () => {
 
-    setCardsPracticed(new Array(cards.length).fill(null));
+    return cards.map(card => {
+      card.practiced = null
+    });
   }
 
 
@@ -115,8 +120,8 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
           <button className="chevron-right-btn" onClick={nextCard}><FontAwesomeIcon icon={faChevronRight} /></button>
         </div>
         <div className="answer-functions">
-          <button onClick={() => addCheckMark(currentCard)} className="check-button"><FontAwesomeIcon icon={faCheck} /></button>
-          <button onClick={() => addX(currentCard)} className="x-button"><FontAwesomeIcon icon={faX} /></button>
+          <button onClick={() => addCheckMark(cards[currentCard].id)} className="check-button"><FontAwesomeIcon icon={faCheck} /></button>
+          <button onClick={() => addX(cards[currentCard].id)} className="x-button"><FontAwesomeIcon icon={faX} /></button>
         </div>
       </div>
     </div>

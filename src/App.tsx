@@ -3,6 +3,7 @@ import './App.css';
 import Collection from './components/Collection';
 import Collections from './components/Collections';
 import { data } from './db/data';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const initialValue: string = "Start New Collection...";
 
@@ -10,6 +11,7 @@ export type CardDetails = {
   id: number,
   question: string,
   answer: string, 
+  practiced: IconDefinition|null,
 }
 
 export interface CollectionsInterface {
@@ -39,6 +41,7 @@ function App(): any {
       id: Date.now(),
       question,
       answer,
+      practiced: null
     }
 
     const updateArray = [...collections[currentCollection]];
