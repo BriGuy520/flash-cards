@@ -71,8 +71,6 @@ const Collection = ({
       </div>
       {practice ?  
         <Practice
-          question={question}
-          answer={answer}
           shuffleCards={shuffleCards}
           cards={cards}
         />

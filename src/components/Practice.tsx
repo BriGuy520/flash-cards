@@ -7,14 +7,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 type CardProps = {
-  answer: string, 
-  question: string,
   shuffleCards: MouseEventHandler<HTMLButtonElement>,
   cards: Array<CardDetails>
 }
 
 
-const Practice = ({question, answer, cards, shuffleCards}: CardProps) => {
+const Practice = ({cards, shuffleCards}: CardProps) => {
 
   const [currentCard, setCurrentCard] = React.useState(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
