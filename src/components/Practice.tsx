@@ -54,17 +54,14 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
 
   const addCheckMark = (cardIdx: number) => {
 
-
-    console.log(cards, cardIdx);
-
-
-
     nextCard();
 
     return cards.map(card => {
       if(card.id === cardIdx){
         card.practiced = faCheck;
       }
+
+      return card;
     });
   }
 
@@ -76,6 +73,8 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
       if(card.id === cardIdx){
         card.practiced = faX;
       }
+
+      return card;
     });
   }
 
@@ -95,8 +94,12 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
 
   const clearPracticed = () => {
 
+    setCurrentCard(0);
+
     return cards.map(card => {
-      card.practiced = null
+      card.practiced = null;
+
+      return card;
     });
   }
 
