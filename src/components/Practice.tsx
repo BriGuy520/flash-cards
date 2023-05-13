@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 import CardComponents from './CardComponents';
-import { faCheck, faX, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faX, faChevronLeft, faChevronRight, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 import { CardDetails } from '../App';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -15,8 +15,11 @@ type CardProps = {
 const Practice = ({cards, shuffleCards}: CardProps) => {
 
 
-  const [currentCard, setCurrentCard] = React.useState(0);
+  const [currentCard, setCurrentCard] = React.useState<number>(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
+  const [cardsPracticed, setCardsPracticed] = React.useState<Array<null|IconDefinition>>(cards.map(card => card.practiced));
+
+  console.log(cardsPracticed);
 
   const disableShuffle: boolean = cards && cards.length > 1 ? false : true;
 
@@ -80,7 +83,19 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
       return card;
     });
   }
+  
+  const clearPracticed = () => {
 
+    setCurrentCard(0);
+
+    setCardsPracticed(new Array(cards.length).fill(null));
+
+    return cards.map(card => {
+      card.practiced = null;
+
+      return card;
+    });
+  }
 
   const cardBoxes = cards.map((card: any, idx: number) => {
 
@@ -95,17 +110,6 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
     }
   })
 
-  const clearPracticed = () => {
-
-    setCurrentCard(0);
-
-    return cards.map(card => {
-      card.practiced = null;
-
-      return card;
-    });
-  }
-
 
   return (
     <div className="game-container py-4">
@@ -113,8 +117,10 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
         <h3>{currentCard + 1} / {cards.length}</h3>
         <div className="boxes">
           {cardBoxes}
-          <button className="btn btn-outline-purple" style={{'marginLeft': '10px'}} disabled={disableShuffle} onClick={shuffleCards}>Shuffle</button>
-          <button className="btn btn-outline-danger" style={{'marginLeft': '10px'}} onClick={clearPracticed}>Clear</button>
+          <div className="pracitce-functions">
+            <button className="btn btn-outline-purple" style={{'marginLeft': '10px'}} disabled={disableShuffle} onClick={shuffleCards}>Shuffle</button>
+            <button className="btn btn-outline-danger" style={{'marginLeft': '10px'}} onClick={clearPracticed}>Clear</button>
+          </div>
         </div>
       </div>
       <div className="practice-functions" style={{'display': 'flex'}}>

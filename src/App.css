@@ -10,6 +10,7 @@
 
 .collection-header h1 {
   color: rgb(43, 223, 223);
+  width: 65%;
 }
 
 ul.collections-list {
@@ -85,6 +86,11 @@ ul.collections-list li.active {
 }
 
 @media(min-width: 600px){
+
+  .collection-header h1 {
+    font-size: calc(1.175rem + 1.5vw);
+  }
+
   .card {
     width: 44%;
   }
@@ -290,6 +296,10 @@ button.btn.btn-outline-primary:hover {
 }
 
 @media (min-width: 600px){
+
+  button.btn.btn-outline-purple {
+    margin-bottom: 0px;
+  }
 
   .card-functions {
     width: 90%;
