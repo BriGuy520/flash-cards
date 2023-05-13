@@ -14,9 +14,12 @@ type CardProps = {
 
 const Practice = ({cards, shuffleCards}: CardProps) => {
 
+
   const [currentCard, setCurrentCard] = React.useState(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
-  
+
+  const disableShuffle: boolean = cards && cards.length > 1 ? false : true;
+
   const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     
@@ -110,7 +113,7 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
         <h3>{currentCard + 1} / {cards.length}</h3>
         <div className="boxes">
           {cardBoxes}
-          <button className="btn btn-outline-purple" style={{'marginLeft': '10px'}} onClick={shuffleCards}>Shuffle</button>
+          <button className="btn btn-outline-purple" style={{'marginLeft': '10px'}} disabled={disableShuffle} onClick={shuffleCards}>Shuffle</button>
           <button className="btn btn-outline-danger" style={{'marginLeft': '10px'}} onClick={clearPracticed}>Clear</button>
         </div>
       </div>
