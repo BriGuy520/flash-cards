@@ -14,14 +14,14 @@ type CardProps = {
 
 const Practice = ({cards, shuffleCards}: CardProps) => {
 
-
   const [currentCard, setCurrentCard] = React.useState<number>(0);
   const [showQuestion, setShowQuestion] = React.useState<boolean>(true);
-  const [cardsPracticed, setCardsPracticed] = React.useState<Array<null|IconDefinition>>(cards.map(card => card.practiced));
+  const [cardsPracticed, setCardsPracticed] = React.useState<boolean>(false);
 
-  console.log(cardsPracticed);
 
+  
   const disableShuffle: boolean = cards && cards.length > 1 ? false : true;
+
 
   const handleCardStateClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -61,6 +61,7 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
   const addCheckMark = (cardIdx: number) => {
 
     nextCard();
+    setCardsPracticed(true);
 
     return cards.map(card => {
       if(card.id === cardIdx){
@@ -74,6 +75,7 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
   const addX = (cardIdx: number) => {
 
     nextCard();
+    setCardsPracticed(true);
 
     return cards.map(card => {
       if(card.id === cardIdx){
@@ -88,7 +90,7 @@ const Practice = ({cards, shuffleCards}: CardProps) => {
 
     setCurrentCard(0);
 
-    setCardsPracticed(new Array(cards.length).fill(null));
+    setCardsPracticed(false);
 
     return cards.map(card => {
       card.practiced = null;
